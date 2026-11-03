@@ -1,0 +1,472 @@
+<!doctype html><html><head><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap"><meta name="robots" content="noindex,nofollow"><style>.sc-bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:8px max(16px,env(safe-area-inset-right,0px)) 8px max(16px,env(safe-area-inset-left,0px));background:#2D354C;color:#E6E9F2;font:500 13px/18px "Rubik",system-ui,sans-serif;direction:rtl}.sc-bar a,.sc-bar button{color:#FCFAFF;font:inherit;font-weight:600;background:none;border:0;padding:6px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}.sc-bar span{opacity:.85}.sc-bar .sc-sp{flex:1}</style><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><div class="sc-bar" role="note"><a href="../../">→ לכל הכלים</a></div>
+<title>שיר מורי – מהכיתה אליכם</title>
+<meta name="description" content="אני שיר, מורה ומחנכת בחינוך המיוחד מעל 10 שנים. כלים, טיפים וליווי אישי לילדים בכיתות ג׳–ט׳, מהוד השרון.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="theme-color" content="#F1E5D1">
+<meta name="color-scheme" content="light only">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playpen+Sans+Hebrew:wght@400;600&display=swap">
+<style>
+:root{
+  color-scheme:light only;
+  --ground:#F1E5D1; --paper:#FFFBF3; --ink:#2F3A2C; --muted:#6B6552; --line:#DFCFB3;
+  --rule:#E8DCC6; --margin:#E2A68C; --pen:#B5532F; --penlight:#E59A77;
+  --green:#4E6B4A; --green-soft:#DCE4D0;
+  --tile1:#DCE4D0; --tile2:#EFD49E; --tile3:#F2D3C2; --tile4:#3F5A3C; --tile4-ink:#F8F1E4;
+  --accent:#B5532F; --accent-ink:#FFFFFF;
+  --note-ink:#2F3A2C; --note1:#F5DDA6; --note2:#F0C6B2; --note3:#D2DEC5; --tape:rgba(255,255,255,.6); --wa-bubble:#E4F0D9; --line-soft:#E2D6C2;
+  --shadow:0 10px 24px rgba(80,55,30,.14);
+  /* type scale: six sizes, in rem so the phone's text-size setting scales them */
+  --fs-sm:.9375rem;                         /* 15 – meta, footer, small labels */
+  --fs-body:1.0625rem;                      /* 17 – all reading text */
+  --fs-md:1.25rem;                          /* 20 – h3, section leads */
+  --fs-lg:clamp(1.375rem,2.9vw,1.75rem);    /* 22–28 – hero role, tile titles */
+  --fs-h2:clamp(1.625rem,4.4vw,2.25rem);    /* 26–36 */
+  --fs-h1:clamp(2.375rem,5.6vw,3rem);       /* 38–48 */
+  --lh-tight:1.15; --lh-snug:1.5; --lh-body:1.7;
+  /* spacing scale */
+  --s1:.25rem; --s2:.5rem; --s3:.75rem; --s4:1rem; --s5:1.5rem; --s6:2rem; --s7:3rem;
+  /* motion: one press, one settle curve (critically damped feel, no overshoot) */
+  --press:scale(.97);
+  --ease-out:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:"Rubik","Arial Hebrew",Arial,sans-serif;font-size:var(--fs-body);line-height:var(--lh-body);direction:rtl;overflow-x:hidden}
+.wrap{max-width:980px;margin:0 auto;padding-inline:20px}
+.narrow{max-width:680px}
+h1,h2,h3{font-family:"Rubik",Arial,sans-serif;font-weight:700;margin:0;text-wrap:balance;line-height:var(--lh-tight)}
+h1{font-size:var(--fs-h1);font-weight:800}
+h2{font-size:var(--fs-h2)}
+h3{font-size:var(--fs-md)}
+p{margin:0;text-wrap:pretty}
+.hand{font-family:"Playpen Sans Hebrew","Rubik",sans-serif}
+/* red-pen marks */
+.u{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20200%2020%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M3%2013%20C%2040%206%2C%2080%2016%2C%20120%209%20S%20180%207%2C%20197%2011%22%20fill%3D%22none%22%20stroke%3D%22%23B5532F%22%20stroke-width%3D%226%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:100% .28em;background-position:0 100%;padding-bottom:.1em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+/* buttons */
+.wa{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--accent-ink);font-weight:700;text-decoration:none;border-radius:999px;padding:14px 26px;font-size:1.125rem;min-height:52px;box-shadow:0 6px 16px rgba(181,83,47,.28)}
+.wa:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.wa svg{width:22px;height:22px;flex:none}
+.ig{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-weight:600;font-size:var(--fs-sm);text-decoration:none;border:1.5px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;min-height:44px}
+.ig svg{width:17px;height:17px}
+.ig:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.links{display:flex;flex-wrap:wrap;gap:var(--s3);align-items:center;margin-top:var(--s5)}
+.sec{display:inline-flex;gap:var(--s2);flex-wrap:wrap}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 230px;gap:var(--s7);align-items:start;padding-block:var(--s5) var(--s6)}
+.hero h1{margin-top:var(--s2)}
+.hero .role{font-size:var(--fs-lg);line-height:1.35;margin-top:var(--s4);max-width:30ch;font-weight:500}
+.hero .invite{color:var(--muted);margin-top:var(--s4);max-width:44ch}
+.polaroid{margin:var(--s4) 0 0;position:relative;background:#FFFEFA;padding:10px;box-shadow:var(--shadow);transform:rotate(1.5deg);width:230px}
+.polaroid .imgbox{overflow:hidden}
+.polaroid img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 25%}
+.tape{position:absolute;top:-14px;left:50%;width:96px;height:28px;margin-left:-48px;background:var(--tape);box-shadow:0 1px 3px rgba(0,0,0,.08);transform:rotate(-4deg);backdrop-filter:blur(1px)}
+.checks{list-style:none;margin:var(--s5) 0 0;padding:0;display:grid;gap:var(--s2);font-weight:600;font-size:var(--fs-body);line-height:var(--lh-snug)}
+.checks li{display:flex;align-items:center;gap:10px}
+.checks li::before{content:"";width:26px;height:26px;flex:none;border:2px solid var(--line);border-radius:6px;background:var(--paper) url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M3%2013%20C%206%2015%2C%208%2018%2C%209.5%2020.5%20C%2012%2013%2C%2016%207%2C%2022%203%22%20fill%3D%22none%22%20stroke%3D%22%234E6B4A%22%20stroke-width%3D%222.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E") no-repeat center/20px 20px}
+.status{display:inline-flex;align-items:center;gap:7px;font-size:var(--fs-sm);font-weight:600;color:var(--green);margin-top:var(--s4)}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--green);flex:none}
+@media (max-width:800px){
+  .hero{display:block;position:relative;padding-block:calc(var(--s5) + 4px) var(--s1)}
+  .polaroid{position:absolute;top:20px;left:0;width:104px;height:170px;padding:5px;margin:0;display:flex;flex-direction:column}
+  .polaroid .imgbox{flex:1;min-height:0}
+  .polaroid img{height:100%;aspect-ratio:auto;object-position:50% 20%}
+  .hero h1,.hero .role{padding-left:118px}
+  .hero h1{font-size:2.375rem}
+  .hero .role{font-size:var(--fs-md)}
+  /* keep the paragraph below the photo: text beside the photo must reach past its bottom */
+  .hero .role{min-height:calc(190px - var(--s6) - var(--s2) - 2.75rem - var(--s4) - 13px + 12px)}
+  .hero .invite{margin-top:var(--s3)}
+  .checks{margin-top:var(--s4)}
+  .links{gap:10px}
+  .wa{padding:12px 20px;font-size:var(--fs-body)}
+  .tape{width:50px;height:15px;margin-left:-25px;top:-8px}
+}
+/* narrow Android phones (360px): keep "היי, אני שיר." on one line */
+@media (max-width:380px){.hero h1{font-size:2rem;white-space:nowrap}.hero h1,.hero .role{padding-left:108px}.polaroid{width:96px}.hero .wa{padding-inline:16px}.hero .ig{padding-inline:12px}}
+
+/* floating whatsapp */
+.fab{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));width:48px;height:48px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;box-shadow:0 6px 16px rgba(80,55,30,.25);opacity:0;transform:translateY(12px) scale(.9);pointer-events:none;transition:opacity .3s var(--ease-out),transform .3s var(--ease-out);z-index:10}
+.fab.on{opacity:1;transform:none;pointer-events:auto}
+.fab svg{width:24px;height:24px}
+.fab:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
+/* sections */
+section{padding-block:var(--s6)}
+@media (max-width:560px){section{padding-block:var(--s6) var(--s5)}}
+section.first{padding-top:var(--s4)}
+.head{display:grid;gap:var(--s1);margin-bottom:var(--s5)}
+.head .u{white-space:nowrap}
+.lead{font-size:var(--fs-md);line-height:var(--lh-snug);color:var(--muted);max-width:52ch;margin-top:var(--s2)}
+@media (max-width:560px){.lead{font-size:var(--fs-body)}}
+
+/* lined paper band */
+.paperband{background-color:var(--paper);position:relative;border-block:1px solid var(--line)}
+.paperband::before{content:"";position:absolute;top:0;bottom:0;right:max(14px,calc(50% - 520px));width:2px;background:var(--margin);opacity:.8}
+
+/* sticky notes (tips) */
+.notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s5);padding-top:var(--s2)}
+.note{position:relative;background:var(--nb);color:var(--note-ink);padding:var(--s6) var(--s5) var(--s5);box-shadow:var(--shadow);display:grid;gap:var(--s2);align-content:start}
+.note::before{content:"";position:absolute;top:-12px;left:50%;width:84px;height:24px;margin-left:-42px;background:var(--tape);transform:rotate(3deg)}
+.note .hand{font-size:var(--fs-body);font-weight:600;color:#9A3F22}
+.note h3{color:var(--note-ink)}
+.note p{line-height:var(--lh-snug);color:#4A4636}
+.n1{--nb:var(--note1);transform:rotate(-.8deg)}
+.n2{--nb:var(--note2);transform:rotate(.6deg)}
+.n3{--nb:var(--note3);transform:rotate(-.4deg)}
+.ndots{display:none;gap:7px;justify-content:center;margin-top:var(--s1)}
+.ndots i{width:7px;height:7px;border-radius:50%;background:var(--muted);opacity:.3;transition:opacity .2s,width .2s}
+.ndots i.on{opacity:.9;width:18px;border-radius:4px;background:var(--pen)}
+@media (max-width:820px){
+  .notes{grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:min(80%,320px);gap:var(--s4);overflow-x:auto;scroll-snap-type:x mandatory;padding:18px 4px 12px;scrollbar-width:none;overscroll-behavior-x:contain}
+  .notes::-webkit-scrollbar{display:none}
+  .note{scroll-snap-align:start}
+  .ndots{display:flex}
+}
+
+/* three tiles, titles pop out of the card */
+.four{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s7) var(--s5);padding-top:18px}
+.t{position:relative;border-radius:22px;padding:10px var(--s5) var(--s5);display:grid;gap:10px;align-content:start;background:var(--tb);color:var(--ti)}
+.t h3{font-size:var(--fs-lg);margin-top:-30px;justify-self:start;background:var(--ground);color:var(--ink);padding:2px 12px 4px;border-radius:10px;text-shadow:2px 2px 0 var(--tb)}
+.t h3 span{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20200%2020%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M3%2013%20C%2040%206%2C%2080%2016%2C%20120%209%20S%20180%207%2C%20197%2011%22%20fill%3D%22none%22%20stroke%3D%22%23B5532F%22%20stroke-width%3D%226%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:100% .3em;background-position:0 100%;padding-bottom:.12em}
+.t p{line-height:var(--lh-snug);color:var(--ti);opacity:.84}
+.t1{--tb:var(--tile1);--ti:var(--ink)}
+.t2{--tb:var(--tile2);--ti:var(--ink)}
+.t3{--tb:var(--tile3);--ti:var(--ink)}
+.tdark{--tb:var(--tile4);--ti:var(--tile4-ink)}
+.tdark h3{text-shadow:none}
+@media (max-width:760px){
+  .four{grid-template-columns:1fr;row-gap:var(--s6);max-width:520px}
+  .t{padding:6px var(--s4) var(--s4);border-radius:18px}
+  .t h3{font-size:var(--fs-md);margin-top:-22px;padding:2px 10px 3px}
+}
+
+/* about: index card */
+.card{margin-top:var(--s5);background:var(--paper);padding:var(--s5) var(--s6) var(--s6);box-shadow:var(--shadow);border-radius:4px;display:grid;gap:var(--s4)}
+.card h2{margin-top:-52px;justify-self:start;background:var(--ground);padding:2px 14px;border-radius:10px;transform:rotate(-1.5deg);box-shadow:var(--shadow);min-height:34px}
+@media (max-width:560px){.card{padding:var(--s5) var(--s4) var(--s5)}}
+
+/* sound familiar? */
+.qs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s3);margin-top:var(--s5)}
+.q{display:flex;flex-direction:column;justify-content:space-between;gap:var(--s3);min-height:118px;background:var(--paper);color:var(--ink);text-decoration:none;border-radius:18px;padding:var(--s4) var(--s4) 14px;box-shadow:var(--shadow);border:1.5px solid transparent;transition:transform .2s var(--ease-out),border-color .2s,background-color .2s}
+.q b{font-size:var(--fs-body);line-height:1.35;font-weight:600}
+.q .go{font-size:var(--fs-sm);font-weight:700;color:var(--pen);display:inline-flex;gap:6px;align-items:center}
+.q .go i{font-style:normal;display:inline-block;transition:transform .2s var(--ease-out)}
+.q:focus-visible{border-color:var(--pen)}
+@media (max-width:480px){.q{padding:14px 13px 12px;min-height:108px}}
+
+/* parents' voices carousel */
+.vtrack{display:grid;grid-auto-flow:column;grid-auto-columns:min(78%,340px);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 14px;scrollbar-width:none;overscroll-behavior-x:contain}
+.vtrack::-webkit-scrollbar{display:none}
+.vc{scroll-snap-align:start;margin:0;background:var(--wa-bubble);border-radius:16px 16px 16px 4px;padding:16px 18px 12px;box-shadow:var(--shadow);display:grid;gap:10px;align-content:space-between;position:relative}
+.vc blockquote{margin:0;line-height:var(--lh-snug);color:var(--ink)}
+.vc figcaption{font-size:var(--fs-sm);color:var(--muted)}
+.vdots{display:flex;gap:7px;justify-content:center;margin-top:6px}
+.vdots i{width:7px;height:7px;border-radius:50%;background:var(--muted);opacity:.3;transition:opacity .2s,width .2s}
+.vdots i.on{opacity:.9;width:18px;border-radius:4px;background:var(--pen)}
+.sample-note{font-size:var(--fs-sm)}
+
+/* how to start */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:var(--s5);position:relative;--fill:0}
+.steps::before,.steps::after{content:"";position:absolute;right:21px;top:22px;bottom:22px;width:3px;border-radius:2px;background:var(--line-soft)}
+.steps::after{background:var(--green);bottom:auto;height:calc((100% - 44px) * var(--fill))}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:var(--s4);align-items:start;position:relative;z-index:1}
+.steps .n{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--paper);border:2.5px solid var(--green);color:var(--green);font-weight:700;font-size:var(--fs-md);transition:background .3s,color .3s}
+.steps li.lit .n{background:var(--green);color:var(--paper)}
+.steps h3{margin:6px 0 2px}
+.steps p{color:var(--muted);line-height:var(--lh-snug)}
+
+/* faq */
+details{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:0 18px}
+details+details{margin-top:10px}
+summary{cursor:pointer;font-weight:700;padding-block:var(--s4);list-style:none;display:flex;justify-content:space-between;gap:var(--s3);line-height:var(--lh-snug)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:"Playpen Sans Hebrew",sans-serif;color:var(--pen);font-size:24px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{padding-bottom:var(--s4);color:var(--muted)}
+
+/* footer + accessibility statement */
+footer{border-top:1px solid var(--line);padding-block:var(--s5) 84px;font-size:var(--fs-sm);color:var(--muted);display:grid;gap:var(--s2)}
+.a11y{border:0;background:none;padding:0;margin:0;box-shadow:none}
+.a11y summary{cursor:pointer;color:var(--muted);text-decoration:underline;font-size:var(--fs-sm);font-weight:400;padding:var(--s3) 0!important;margin-block:calc(-1 * var(--s3));border:0;background:none;display:inline-block}
+.a11y summary::after,.a11y summary::before{display:none!important;content:none!important}
+.a11y p{line-height:1.6;margin-top:var(--s2);max-width:65ch}
+
+/* focus */
+a:focus-visible,summary:focus-visible,.notes:focus-visible,.vtrack:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+
+/* touch: instant press feedback, same for every control */
+a,summary,button,.notes{-webkit-tap-highlight-color:transparent}
+.wa,.ig{transition:transform .1s ease-out,filter .15s}
+.wa:active,.ig:active,.q:active,.fab.on:active{transform:var(--press);transition-duration:.1s}
+.q:active{background-color:var(--green-soft)}
+details summary:active{opacity:.7}
+/* hover lift only where there is a real pointer, so it never sticks after a tap */
+@media (hover:hover) and (pointer:fine){
+  .wa:hover{filter:brightness(1.05)}
+  .q:hover{border-color:var(--pen);transform:translateY(-2px)}
+  .q:hover .go i,.q:focus-visible .go i{transform:translateX(-4px)}
+}
+
+/* scroll reveal (only when JS runs) */
+.js .rv{opacity:0;transform:translateY(10px);transition:opacity .45s var(--ease-out),transform .45s var(--ease-out)}
+@media (min-width:821px){.js .rv{transition-delay:calc(var(--d,0) * 70ms)}}
+.js .rv.in{opacity:1;transform:none}
+.js .q.rv.in{transition:opacity .45s var(--ease-out),transform .2s var(--ease-out),border-color .2s,background-color .2s}
+.js .q.rv.in:active{transition-duration:.1s}
+/* red pen draws itself */
+.js .u,.js .t h3 span{background-size:0 .3em;background-position:100% 100%;transition:background-size .8s cubic-bezier(.6,0,.2,1) .15s}
+.js .u.drawn,.js .t h3 span.drawn{background-size:100% .3em}
+/* typed headline caret */
+.caret{display:inline-block;width:3px;height:.9em;background:var(--pen);margin-inline-start:4px;vertical-align:-.08em;animation:blink .8s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* floating whatsapp: gentle reminder, a few times per visit — one smooth grow and settle, no double bounce */
+.fab::after{content:"";position:absolute;inset:0;border-radius:50%;border:3px solid var(--accent);opacity:0;pointer-events:none}
+.fab.nudge{animation:fabpop 1.2s var(--ease-out)}
+.fab.nudge::after{animation:fabring 1.2s ease-out}
+@keyframes fabpop{0%,100%{transform:none}35%{transform:scale(1.07)}}
+@keyframes fabring{0%{opacity:.45;transform:scale(1)}100%{opacity:0;transform:scale(1.6)}}
+
+/* reduced motion: keep feedback, drop movement */
+@media (prefers-reduced-motion:reduce){
+  .t,.note,.polaroid,.card,.card h2{transform:none}
+  .fab,.q,.q .go i,.wa,.ig{transition:none}
+  .fab.nudge,.fab.nudge::after{animation:none}
+  .js .rv{opacity:1;transform:none;transition:none}
+  .js .u,.js .t h3 span{background-size:100% .3em;transition:none}
+  .caret{display:none}
+}
+/* familiar questions inside the hero */
+.fa-k{font-family:"Playpen Sans Hebrew","Rubik",sans-serif;color:var(--pen);font-size:var(--fs-sm);margin-top:var(--s4)}
+.fa{list-style:none;margin:var(--s2) 0 var(--s4);padding:0;display:grid;gap:var(--s2);max-width:34rem}
+.fa a{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);text-decoration:none;color:var(--ink);background:var(--paper);border-radius:14px;padding:11px 14px;box-shadow:0 1px 0 var(--line);border:1.5px solid transparent;font-weight:600;font-size:var(--fs-body);line-height:1.35;transition:transform .2s var(--ease-out),border-color .2s,background-color .2s}
+.fa a i{font-style:normal;color:var(--pen);font-weight:700;flex:none;transition:transform .2s var(--ease-out)}
+.fa a:focus-visible{border-color:var(--pen);outline:none}
+.fa a:active{transform:var(--press);background-color:var(--green-soft);transition-duration:.1s}
+@media (hover:hover) and (pointer:fine){.fa a:hover{border-color:var(--pen)}.fa a:hover i{transform:translateX(-4px)}}
+.hero .invite{margin-top:var(--s4)}
+@media (max-width:560px){.fa a{padding:10px 12px;gap:8px;font-size:1rem}.fa a i{margin-inline-start:-2px}.hero{padding-bottom:0}.hero .fa-k{margin-top:var(--s3)}.hero .links{margin-top:var(--s4)}}
+@media (max-width:560px){.hero .role{min-height:0}.hero .checks{margin-top:20px;font-size:.9375rem;gap:6px}.hero .checks li{gap:7px}.hero .checks li::before{width:21px;height:21px;background-size:16px 16px;border-width:1.5px}}
+
+/* review fixes 2026-10-07 */
+.t h3 span{background-image:none!important}
+@media (max-width:560px){.hero .invite{font-size:1rem;line-height:1.65}}
+.nw{white-space:nowrap}
+.card{border-radius:18px}
+.hero .role{text-wrap:balance}
+.notes{padding-bottom:34px;margin-bottom:-22px}
+.more{justify-self:start;font:inherit;font-weight:700;color:var(--pen);background:none;border:0;padding:6px 0;min-height:44px;cursor:pointer;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px;touch-action:manipulation}
+.more:focus-visible{outline:3px solid var(--pen);outline-offset:2px;border-radius:4px}
+.more-body.open{animation:morein .25s ease-out}
+@keyframes morein{from{opacity:0}}
+@media (prefers-reduced-motion:reduce){.more-body.open{animation:none}}
+
+/* "הרגע שאני": quiet paragraph with a thin side line and a handwritten signature */
+.hero .hand{margin:var(--s5) 0 0;max-width:44ch;padding-right:14px;border-right:2px solid var(--penlight);font-size:1rem;line-height:1.65;color:var(--muted)}.hand .sig{font-family:"Playpen Sans Hebrew","Rubik",sans-serif;color:var(--pen);font-weight:600;font-size:1.05rem;margin-inline-start:6px;white-space:nowrap}
+/* arrows nudge once, one after another, to hint the questions are tappable */
+@keyframes nudge{0%,100%{transform:none}45%{transform:translateX(-6px)}}
+.fa a i{animation:nudge .7s var(--ease-out) 1s}.fa li:nth-child(2) a i{animation-delay:1.25s}.fa li:nth-child(3) a i{animation-delay:1.5s}
+@media (prefers-reduced-motion:reduce){.fa a i{animation:none}}
+/* review 2026-10-07 evening */
+.paperband::before{display:none}
+.fa-k{font-family:inherit;font-weight:600}
+.endcta{display:flex;flex-direction:column;align-items:center;gap:10px;padding-block:var(--s5) var(--s3)}
+/* free first call: green line with a coffee cup, centered under the WhatsApp button */
+.hero .links{display:grid;grid-template-columns:auto auto;justify-content:start;align-items:center;column-gap:10px;row-gap:8px}.hero .links .free{grid-column:1;grid-row:2;justify-self:center}
+.free{margin:0;display:inline-flex;align-items:center;gap:6px;font-size:.875rem;font-weight:600;color:var(--green)}.free::before{content:"";width:17px;height:17px;flex:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%234E6B4A%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%209h13v5a5%205%200%200%201-5%205H9a5%205%200%200%201-5-5V9z%22/%3E%3Cpath%20d%3D%22M17%2011h1.5a2.5%202.5%200%200%201%200%205H17%22/%3E%3Cpath%20d%3D%22M8%203c0%201.5%201%201.5%201%203M12%203c0%201.5%201%201.5%201%203%22/%3E%3C/svg%3E") no-repeat center/17px 17px}
+@media (max-width:359px){.hero .links{grid-template-columns:auto}.hero .links .sec{grid-row:3;justify-self:start}.hero .links .free{justify-self:start}}
+/* about: 4 marker highlights */
+.card b.mk{font-weight:600;white-space:nowrap;background:linear-gradient(transparent 60%,rgba(239,212,158,.8) 60%);padding-inline:1px}
+</style>
+
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <h1>היי, אני <span class="u">שיר.</span></h1>
+      <p class="role">מורה ומחנכת <span class="nw">בחינוך המיוחד</span> <span class="nw">כבר מעל 10 שנים.</span></p>
+      <ul class="checks"><li>תואר ראשון ושני בחינוך מיוחד</li><li>הוראה מותאמת במתמטיקה ושפה</li></ul>
+      <p class="fa-k">נשמע מוכר? לחצו וספרו לי</p><ul class="fa"><li><a data-goatcounter-click="familiar-1" href="https://wa.me/972542009594?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%99%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%A9%D7%A0%D7%93%D7%91%D7%A8%20%D7%9C%D7%92%D7%91%D7%99%20%D7%94%D7%91%D7%9F%20%D7%A9%D7%9C%D7%99.%20%D7%94%D7%95%D7%90%20%D7%90%D7%95%D7%9E%D7%A8%20%22%D7%90%D7%A0%D7%99%20%D7%9C%D7%90%20%D7%99%D7%95%D7%93%D7%A2%22%20%D7%A2%D7%95%D7%93%20%D7%9C%D7%A4%D7%A0%D7%99%20%D7%A9%D7%94%D7%95%D7%90%20%D7%9E%D7%A0%D7%A1%D7%94." target="_blank" rel="noopener">אומר "אני לא יודע" עוד לפני שניסה?<i aria-hidden="true">←</i></a></li><li><a data-goatcounter-click="familiar-3" href="https://wa.me/972542009594?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%99%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%A9%D7%A0%D7%93%D7%91%D7%A8%20%D7%9C%D7%92%D7%91%D7%99%20%D7%94%D7%91%D7%AA%20%D7%A9%D7%9C%D7%99.%20%D7%94%D7%99%D7%90%20%D7%99%D7%95%D7%93%D7%A2%D7%AA%20%D7%9C%D7%A7%D7%A8%D7%95%D7%90%2C%20%D7%90%D7%91%D7%9C%20%D7%9C%D7%90%20%D7%A2%D7%95%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%A9%D7%90%D7%9C%D7%95%D7%AA." target="_blank" rel="noopener">יודעת לקרוא, אבל לא עונה על שאלות?<i aria-hidden="true">←</i></a></li><li><a data-goatcounter-click="familiar-2" href="https://wa.me/972542009594?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%99%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%A9%D7%A0%D7%93%D7%91%D7%A8%20%D7%9C%D7%92%D7%91%D7%99%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%D7%99%20%D7%94%D7%91%D7%99%D7%AA.%20%D7%90%D7%A6%D7%9C%D7%A0%D7%95%20%D7%96%D7%94%20%D7%9C%D7%90%20%D7%94%D7%95%D7%9C%D7%9A%20%D7%91%D7%9C%D7%99%20%D7%A9%D7%9E%D7%99%D7%A9%D7%94%D7%95%20%D7%99%D7%95%D7%A9%D7%91%20%D7%9C%D7%99%D7%93." target="_blank" rel="noopener">מתקשה להתחיל את שיעורי הבית?<i aria-hidden="true">←</i></a></li></ul>
+      <div class="links"><a class="wa" data-goatcounter-click="hero-whatsapp" href="https://wa.me/972542009594?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%99%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%93%D7%A3%20%D7%A9%D7%9C%D7%9A.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%99%D7%97%D7%94%20%D7%A7%D7%A6%D7%A8%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%99%D7%9C%D7%93/%D7%94%20%D7%A9%D7%9C%D7%99%2C%20%D7%91%D7%9B%D7%99%D7%AA%D7%94%20" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg> לכתוב לי בווטסאפ</a><span class="sec"><a class="ig call" data-goatcounter-click="hero-call" href="tel:+972542009594"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg> להתקשר</a></span><p class="free">שיחת היכרות ללא עלות</p></div>
+      <p class="invite hand">הרגע שאני הכי אוהבת הוא כשילד מצליח במשהו שעבדנו עליו יחד, ולוקח את זה איתו לכיתה ולחיים. המטרה שלי היא שהוא יצא מהשיעור עם ביטחון ויכולות להתמודד עם כל אתגר. <span class="sig">שיר</span></p>
+    </div>
+    <figure class="polaroid">
+      <span class="tape" aria-hidden="true"></span>
+      <div class="imgbox"><img src="shir.jpg" alt="שיר מורי" width="800" height="1000"></div>
+    </figure>
+  </div>
+</div>
+
+
+
+
+<section class="first" data-sec="3-things">
+  <div class="wrap">
+    <div class="head">
+      <h2>3 דברים שאני <span class="u">לא מוותרת</span> עליהם</h2>
+    </div>
+    <div class="four">
+      <div class="t t1"><h3><span>היכרות אישית</span></h3><p>לפני שאנחנו מתחילים לעבוד יחד, אני לומדת את הילד: מה מעניין אותו, מה מלחיץ אותו ומה מקנה לו ביטחון.</p></div>
+      <div class="t t2"><h3><span>תוכנית עבודה</span></h3><p>לכל ילד מטרות ברורות שעליהן אנחנו עובדים במפגשים, ואתם ההורים מעודכנים כל הדרך: על מה עבדנו, מה הצליח וכיצד ממשיכים בבית.</p></div>
+      
+      <div class="t t3 tdark"><h3><span>שפה אחת</span></h3><p>חום וגבולות הולכים אצלי יחד. כשההורים ואני עובדים בשיתוף פעולה ומציגים חזית אחידה אל מול הילד, הוא מרגיש בטוח לנסות.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-sec="about">
+  <div class="wrap narrow">
+    <div class="card">
+      <h2>קצת עליי</h2>
+      <p>אני בת 34, <b class="mk">אמא, מורה ומחנכת</b>, וגרה בהוד השרון. בעלת <b class="mk">תואר ראשון</b> בחינוך מיוחד עם התמחות בהוראת המתמטיקה ו<b class="mk">תואר שני</b> בחינוך מיוחד עם התמחות באוטיזם מאוניברסיטת בר־אילן.</p>
+      <p>במהלך השנים חינכתי כיתות שונות, וביניהן כיתות תקשורת. הובלתי צוות של סייעות, מרפאות בעיסוק ותרפיסטיות. היום אני <b class="mk">מורת שילוב</b> בחטיבת ביניים ומדריכה פדגוגית.</p>
+      <div class="more-body" id="about-more"><p>אחר הצהריים אני עובדת אישית עם ילדים, אחד על אחד, עד שהם צוברים ביטחון ומצליחים להתמודד עם כל אתגר באופן עצמאי ומיטבי. מול ההורים חשוב לי שנהיה צוות אחד: אני מקשיבה, מעדכנת וחושבת איתכם על הצעד הבא.</p></div>
+      <button type="button" class="more" aria-controls="about-more" aria-expanded="false" hidden>קראו עוד…</button>
+    </div>
+  </div>
+</section>
+
+<section class="stepsec" data-sec="steps">
+  <div class="wrap narrow">
+    <div class="head">
+      <h2>איך <span class="u">מתחילים?</span></h2>
+    </div>
+    <ol class="steps">
+      <li><span class="n">1</span><div><h3>כותבים לי</h3><p>הודעה קצרה בווטסאפ, על הילד ועל מה שמעסיק אתכם.</p></div></li>
+      <li><span class="n">2</span><div><h3>שיחת היכרות בטלפון</h3><p>ללא עלות, כדי להכיר ולהבין מה הילד צריך.</p></div></li>
+      <li><span class="n">3</span><div><h3>מפגש היכרות</h3><p>אני פוגשת את הילד, ובסוף המפגש אתם יוצאים עם תמונה ברורה: מה הוא כבר יודע, איפה הוא נתקע ומה אפשר להתחיל לעשות כבר השבוע בבית.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="paperband" data-sec="tips">
+  <div class="wrap">
+    <div class="head">
+      <h2>מהכיתה <span class="u">אליכם</span></h2>
+      <p class="lead">דברים קטנים שאפשר לעשות כבר השבוע בבית.</p>
+    </div>
+    <div class="notes" tabindex="0" aria-label="טיפים מהכיתה">
+      <div class="note n1"><span class="hand">לפני שיעורי הבית</span><h3>קודם שואלים על ההפסקה</h3><p>שאלה אחת לפני שפותחים מחברת: איך היה היום בהפסקה? מה שקרה שם משפיע על הלמידה יותר ממה שנדמה לנו.</p></div>
+      <div class="note n2"><span class="hand">מילים</span><h3>לעזור לו להגיד את זה</h3><p>כשהוא כועס או נעלב, שואלים: "מה היית רוצה להגיד לו?". ככה הוא לומד לבטא את עצמו בדרך נעימה.</p></div>
+      <div class="note n3"><span class="hand">עקביות</span><h3>אותו קו בבית ובכיתה</h3><p>כשהמחנכת מעדכנת על משהו שקרה, כדאי שתהיה לזה המשכיות בבית. ילד שרואה שהמבוגרים מתואמים ביניהם מרגיש בטוח.</p></div>
+    </div>
+    <div class="ndots" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section data-sec="faq">
+  <div class="wrap narrow">
+    <div class="head">
+      <h2>שאלות ש<span class="u">הורים</span> שואלים אותי</h2>
+    </div>
+    <details name="faq"><summary>עם אילו גילאים אני עובדת?</summary><p>ביסודי ובחטיבת הביניים. אני מלמדת היום בבית ספר ומכירה מקרוב את מה שנדרש מהילדים.</p></details>
+    <details name="faq"><summary>על מה עובדים במפגשים?</summary><p>קריאה, כתיבה, מתמטיקה והרגלי למידה. ולצד זה ביטחון: לשאול כשלא מבינים ולנסות שוב ושוב. ילד שמרגיש בטוח לומד טוב יותר. לפעמים מה שמפריע ללמוד הוא בכלל לא החומר, משם מתחילים.</p></details>
+    <details name="faq"><summary>אפשר להתייעץ איתך על מסמכים והמלצות שקיבלנו?</summary><p>בשמחה. הורים שולחים לי לא מעט סיכומים והמלצות מבית הספר ומאנשי מקצוע. אני עוברת עליהם, מסבירה בשפה פשוטה על מה כדאי לעבוד ואיך, ואם צריך, אומרת גם לאיזה טיפול הייתי פונה.</p></details>
+    <details name="faq"><summary>איפה נפגשים?</summary><p>אצלי בבית בהוד השרון, אחר הצהריים, לבד או בזוג עם ילד נוסף ברמה דומה.</p></details>
+  </div>
+</section>
+
+
+<div class="wrap endcta" id="endcta"><a class="wa" data-goatcounter-click="end-whatsapp" href="https://wa.me/972542009594?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%99%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%93%D7%A3%20%D7%A9%D7%9C%D7%9A.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%99%D7%97%D7%94%20%D7%A7%D7%A6%D7%A8%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%99%D7%9C%D7%93/%D7%94%20%D7%A9%D7%9C%D7%99%2C%20%D7%91%D7%9B%D7%99%D7%AA%D7%94%20" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg> לכתוב לי בווטסאפ</a><p class="free">שיחת היכרות ללא עלות</p></div>
+
+<div class="wrap">
+  <footer data-sec="end"><span>שיר מורי · מורה ומחנכת בחינוך המיוחד · הוד השרון</span>
+    <details class="a11y" id="negishut"><summary>הצהרת נגישות</summary>
+      <p>חשוב לי שכל הורה יוכל להשתמש באתר בנוחות. האתר נבנה בהתאם להנחיות הנגישות WCAG 2.0 ברמה AA ולתקן הישראלי 5568, ככל שהדבר אפשרי באתר תדמית קטן.</p>
+      <p>מה נעשה באתר: מבנה כותרות ברור, ניווט מלא במקלדת עם סימון מיקום, טקסט חלופי לתמונה, ניגודיות צבעים מספקת, תמיכה בהגדלת טקסט ובתצוגת טלפון, ועצירת אנימציות למי שהגדיר זאת במכשיר.</p>
+      <p>אם נתקלתם בבעיית נגישות, אשמח שתספרו לי ואתקן: שיר מורי, 054-2009594.</p>
+      <p>ההצהרה עודכנה בספטמבר 2026.</p>
+    </details>
+  </footer>
+</div>
+
+<a class="fab" id="fab" data-goatcounter-click="float-whatsapp" href="https://wa.me/972542009594?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%99%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%93%D7%A3%20%D7%A9%D7%9C%D7%9A.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%99%D7%97%D7%94%20%D7%A7%D7%A6%D7%A8%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%99%D7%9C%D7%93/%D7%94%20%D7%A9%D7%9C%D7%99%2C%20%D7%91%D7%9B%D7%99%D7%AA%D7%94%20" target="_blank" rel="noopener" aria-label="לכתוב לשיר בווטסאפ"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></a>
+<script>
+(function(){var f=document.getElementById("fab"),l=document.querySelector(".hero .links"),c=document.getElementById("endcta");if(!f||!l||!("IntersectionObserver" in window)){if(f)f.classList.add("on");return;}var v=new Map();new IntersectionObserver(function(e){e.forEach(function(x){v.set(x.target,x.isIntersecting);});var any=false;v.forEach(function(b){if(b)any=true;});f.classList.toggle("on",!any);}).observe(l);if(c){var o=new IntersectionObserver(function(e){e.forEach(function(x){v.set(x.target,x.isIntersecting);});var any=false;v.forEach(function(b){if(b)any=true;});f.classList.toggle("on",!any);});o.observe(c);}})();
+</script>
+<script>
+(function(){
+  var d=document.documentElement, reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!('IntersectionObserver' in window)) return;
+  d.classList.add('js');
+  // reveal on scroll
+  var sel='section .head, .four .t, .card, .story, .qs .q, .notes .note, .soft, details, .steps li, .vc, .end > *';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  els.forEach(function(el){el.classList.add('rv'); var sib=[].slice.call(el.parentNode.children).filter(function(x){return x.matches&&x.matches(sel)}); el.style.setProperty('--d',Math.min(sib.indexOf(el),4));});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{rootMargin:'0px 0px 12% 0px'});
+  els.forEach(function(el){io.observe(el)});
+  // underline draws when seen
+  var us=[].slice.call(document.querySelectorAll('.u, .t h3 span')).filter(function(u){return !u.closest('h1')});
+  var uo=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('drawn');uo.unobserve(e.target);}})},{rootMargin:'0px 0px -15% 0px'});
+  us.forEach(function(u){uo.observe(u)});
+  // typed headline
+  var h=document.querySelector('.hero h1'), hu=h&&h.querySelector('.u');
+  if(h&&hu){
+    if(reduce){hu.classList.add('drawn');}
+    else{
+      var a=h.firstChild.textContent, b=hu.textContent, i=0;
+      h.setAttribute('aria-label',a+b); h.style.minHeight=h.offsetHeight+'px';
+      h.firstChild.textContent=''; hu.textContent='';
+      var c=document.createElement('span'); c.className='caret'; c.setAttribute('aria-hidden','true'); h.appendChild(c);
+      (function t(){ if(i<a.length){h.firstChild.textContent+=a[i++];} else if(i<a.length+b.length){hu.textContent+=b[i++-a.length];} else {setTimeout(function(){c.remove();hu.classList.add('drawn');},250);return;} setTimeout(t,i<3?120:75);})();
+    }
+  }
+  // steps fill with scroll
+  var st=document.querySelector('.steps');
+  if(st){var lis=st.querySelectorAll('li'); var upd=function(){var r=st.getBoundingClientRect(),vh=innerHeight,p=(vh*0.7-r.top)/r.height;p=Math.max(0,Math.min(1,p));st.style.setProperty('--fill',p);lis.forEach(function(li,k){li.classList.toggle('lit',p>=k/(lis.length-1)-0.02)});};addEventListener('scroll',upd,{passive:true});upd();}
+  // carousel dots
+  [['.vtrack','.vdots'],['.notes','.ndots']].forEach(function(pair){var tr=document.querySelector(pair[0]), dots=document.querySelector(pair[1]);
+  if(tr&&dots){var n=tr.children.length;for(var k=0;k<n;k++)dots.appendChild(document.createElement('i'));var sd=function(){var w=tr.children[0].offsetWidth+14,idx=Math.round(Math.abs(tr.scrollLeft)/w);[].forEach.call(dots.children,function(x,j){x.classList.toggle('on',j===Math.min(idx,n-1))})};tr.addEventListener('scroll',sd,{passive:true});sd();}});
+})();
+</script>
+<script>
+(function(){var hero=document.querySelector('.hero'),p=hero&&hero.querySelector('.polaroid'),h=hero&&hero.querySelector('h1'),r=hero&&hero.querySelector('.role');if(!p||!h||!r)return;
+function fit(){if(innerWidth>800){p.style.top='';p.style.height='';return;}var o=hero.getBoundingClientRect().top,a=h.getBoundingClientRect(),b=r.getBoundingClientRect();p.style.top=(a.top-o+4)+'px';p.style.height=Math.max(120,b.bottom-a.top-4)+'px';}
+fit();addEventListener('resize',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);})();
+</script>
+<script>
+/* behavior analytics: which sections were seen, how long the page stayed open, tip swipes, FAQ opens. Sent once per visit to GoatCounter as events. */
+(function(){
+  var sent={}, q=[];
+  function send(name,title){ if(sent[name])return; sent[name]=1; q.push([name,title]); flush(); }
+  function flush(){ var gc=window.goatcounter; if(!gc||!gc.count)return; while(q.length){var e=q.shift(); try{gc.count({path:e[0],title:e[1],event:true});}catch(x){}} }
+  var ft=setInterval(function(){flush(); if(window.goatcounter&&window.goatcounter.count&&!q.length)clearInterval(ft);},1000);
+  setTimeout(function(){clearInterval(ft)},15000);
+  if('IntersectionObserver' in window){
+    var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){send('sec-'+e.target.getAttribute('data-sec'),'הגיעו לסקשן');so.unobserve(e.target);}})},{threshold:0.35});
+    [].forEach.call(document.querySelectorAll('[data-sec]'),function(el){so.observe(el)});
+  }
+  var marks=[5,15,30,60,120], seen=0, last=Date.now(), vis=document.visibilityState!=='hidden';
+  document.addEventListener('visibilitychange',function(){var n=Date.now(); if(vis)seen+=n-last; last=n; vis=document.visibilityState!=='hidden';});
+  var tt=setInterval(function(){var n=Date.now(); if(vis){seen+=n-last;} last=n;
+    while(marks.length&&seen>=marks[0]*1000){send('time-'+marks[0]+'s','זמן בעמוד'); marks.shift();}
+    if(!marks.length)clearInterval(tt);},1000);
+  var nt=document.querySelector('.notes'); if(nt)nt.addEventListener('scroll',function(){if(Math.abs(nt.scrollLeft)>40)send('tips-swipe','החליקו בטיפים');},{passive:true});
+  [].forEach.call(document.querySelectorAll('[data-sec="faq"] details'),function(d,i){d.addEventListener('toggle',function(){if(d.open)send('faq-'+(i+1),'פתחו שאלה');});});
+})();
+</script>
+<script>
+/* nudge the floating WhatsApp button: 2s after it first shows, then every 25s while shown, at most 3 times, never after a tap */
+(function(){var f=document.getElementById('fab');if(!f||!('MutationObserver' in window))return;var n=0,t=null,done=false;
+function nudge(){if(done||n>=3||!f.classList.contains('on')||document.hidden)return;n++;f.classList.remove('nudge');void f.offsetWidth;f.classList.add('nudge');}
+f.addEventListener('animationend',function(e){if(e.animationName==='fabpop')f.classList.remove('nudge')});
+f.addEventListener('click',function(){done=true;clearInterval(t)});
+new MutationObserver(function(){if(f.classList.contains('on')&&!t){setTimeout(nudge,2000);t=setInterval(function(){nudge();if(n>=3)clearInterval(t)},25000);}}).observe(f,{attributes:true,attributeFilter:['class']});
+})();
+</script>
+<script>
+/* FAQ accordion: opening one closes the others (fallback for browsers without details[name]); keep the opened question in view */
+(function(){var ds=[].slice.call(document.querySelectorAll('details[name="faq"]'));
+ds.forEach(function(d){d.addEventListener('toggle',function(){if(!d.open)return;ds.forEach(function(o){if(o!==d&&o.open)o.open=false});
+var r=d.getBoundingClientRect();if(r.top<60)window.scrollBy({top:r.top-80,behavior:'smooth'});});});})();
+</script>
+<script>
+/* iOS Safari shows :active press feedback only when a touch listener exists */
+document.addEventListener('touchstart',function(){},{passive:true});
+(function(){var b=document.querySelector('.more'),m=document.getElementById('about-more');if(!b||!m)return;
+m.hidden=true;b.hidden=false;
+b.addEventListener('click',function(){m.hidden=false;m.classList.add('open');b.setAttribute('aria-expanded','true');b.remove();m.setAttribute('tabindex','-1');m.focus({preventScroll:true});});})();
+</script>
+
+</body></html>

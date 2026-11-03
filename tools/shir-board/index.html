@@ -1,0 +1,457 @@
+<!doctype html><html><head><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap"><meta name="robots" content="noindex,nofollow"><script>(function () {
+  var day = 864e5, now = Date.now(), ymd = function (n) { return new Date(now - n * day).toISOString().slice(0, 10); };
+  var D = {};
+  var L = [[2, 'אינסטגרם', 'קריאה והבנה', 'ב׳', 'new', 0, 'ביקשה לשמוע על מפגש היכרות'], [4, 'המלצה מהורה', 'שיעורי בית', 'ד׳', 'call', 1, 'שיחה ביום שני'], [6, 'גן', 'ביטחון', 'א׳', 'meet', 2, ''],
+    [9, 'קבוצת קהילה', 'מתמטיקה', 'ה׳', 'started', 3, 'מפגש שבועי'], [11, 'גוגל', 'קריאה והבנה', 'ג׳', 'no', 1, 'מחפשים מסגרת קבוצתית'], [13, 'אינסטגרם', 'רגשי וחברתי', 'ב׳', 'call', 1, ''],
+    [16, 'המלצה מהורה', 'שיעורי בית', 'ו׳', 'started', 3, ''], [19, 'איש מקצוע', 'ביטחון', 'לא ידוע', 'meet', 2, 'הפניה מקלינאית תקשורת'], [23, 'קבוצת קהילה', 'קריאה והבנה', 'א׳', 'new', 0, ''],
+    [27, 'אינסטגרם', 'מתמטיקה', 'ד׳', 'started', 3, ''], [32, 'גן', 'שיעורי בית', 'ב׳', 'no', 0, 'לא חזרו אליי'], [38, 'המלצה מהורה', 'ביטחון', 'ג׳', 'started', 3, '']];
+  L.forEach(function (x, i) { D['leads/l' + (i + 1)] = { date: ymd(x[0]), source: x[1], topic: x[2], grade: x[3], status: x[4], maxStage: x[5], note: x[6], createdAt: new Date(now - x[0] * day).toISOString() }; });
+  var days = []; for (var k = 27; k >= 0; k--) days.push({ d: ymd(k), v: Math.round(9 + 7 * Math.sin(k / 3) + (27 - k) * 0.35 + (k % 4)) });
+  D['site/stats'] = { visits: days.reduce(function (s, d) { return s + d.v; }, 0), updatedAt: new Date(now - day / 3).toISOString(), period: '28 הימים האחרונים',
+    clicks: { 'hero-whatsapp': 21, 'float-whatsapp': 14, 'end-whatsapp': 6, 'hero-call': 5, 'end-call': 2, 'familiar-1': 9, 'familiar-2': 7, 'familiar-3': 4, 'sec-end': 38, 'time-5s': 291, 'time-30s': 164 },
+    sources: { 'אינסטגרם': 141, 'וואטסאפ': 88, 'גוגל': 52, 'ישיר': 47, 'פייסבוק': 19 }, days: days };
+  var pts = []; for (var w = 9; w >= 0; w--) pts.push({ d: ymd(w * 7), n: 120 + (9 - w) * 23 + (w % 3) * 4 });
+  D['metrics/instagram'] = { points: pts };
+  window.DEMO_DB = D;
+})();
+</script><script src="../../assets/claude-shim.js"></script><style>.sc-bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:8px max(16px,env(safe-area-inset-right,0px)) 8px max(16px,env(safe-area-inset-left,0px));background:#2D354C;color:#E6E9F2;font:500 13px/18px "Rubik",system-ui,sans-serif;direction:rtl}.sc-bar a,.sc-bar button{color:#FCFAFF;font:inherit;font-weight:600;background:none;border:0;padding:6px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}.sc-bar span{opacity:.85}.sc-bar .sc-sp{flex:1}</style><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><div class="sc-bar" role="note"><a href="../../">→ לכל הכלים</a><span>נתוני דוגמה. מה שתשנה נשמר רק בדפדפן שלך.</span><span class="sc-sp"></span><button type="button" onclick="resetDemo()">איפוס הדוגמה</button></div>
+<title>לוח המדידה של שיר</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<style>
+/* Layout: one calm column; summary numbers first, then the path parents take, then the log Shir fills in */
+:root{
+  --ground:#F4EBDC; --paper:#FFFBF3; --ink:#2F3A2C; --muted:#6E6B5E; --line:#E4D8C4;
+  --pen:#B5532F; --green:#4E6B4A; --green-soft:#DCE4D0; --sand:#F0DFC0; --blush:#F2D3C2; --wait:#CFC6B4;
+  --display:"Rubik","Rubik",system-ui,sans-serif; --body:"Rubik","Rubik",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#1E221C; --paper:#282E26; --ink:#EEE8DA; --muted:#AFA898; --line:#3B4337;
+  --pen:#E08A62; --green:#9DBB93; --green-soft:#34402F; --sand:#453A26; --blush:#4A3228; --wait:#4A4A40; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#1E221C; --paper:#282E26; --ink:#EEE8DA; --muted:#AFA898; --line:#3B4337;
+  --pen:#E08A62; --green:#9DBB93; --green-soft:#34402F; --sand:#453A26; --blush:#4A3228; --wait:#4A4A40; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;padding-inline:16px;padding-block:22px 60px;direction:rtl}
+main{max-width:760px;margin:0 auto;display:grid;gap:18px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.25;text-wrap:balance}
+h1{font-size:28px}
+h2{font-size:20px}
+.sub{color:var(--muted);margin:4px 0 0;font-size:15px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:14px;min-width:0}
+.card > p.hint{margin:0;color:var(--muted);font-size:14.5px}
+/* numbers */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+#pane-biz .kpis{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:620px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kpi{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:2px}
+.kpi b{font-family:var(--display);font-size:32px;font-variant-numeric:tabular-nums;line-height:1.1}
+.kpi span{font-size:14.5px;color:var(--muted)}
+.kpi.main{background:var(--green);border-color:var(--green)}
+.kpi.main b,.kpi.main span{color:var(--paper)}
+/* bars */
+.bars{display:grid;gap:10px}
+.row{display:grid;grid-template-columns:118px minmax(0,1fr) 64px;gap:10px;align-items:center}
+.row .lab{font-size:15px}
+.track{height:22px;background:var(--ground);border-radius:6px;overflow:hidden;position:relative}
+.fill{height:100%;border-radius:6px;background:var(--green);min-width:3px;transition:width .5s ease}
+.fill.pen{background:var(--pen)} .fill.sand{background:#C9A86A} .fill.wait{background:var(--wait)}
+.fill2{position:absolute;inset-block:0;inset-inline-start:0;background:var(--pen);border-radius:6px;min-width:0}
+.row .val{font-variant-numeric:tabular-nums;font-weight:600;text-align:left;font-size:15px}
+.row .val small{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-inline-end:5px;vertical-align:-1px}
+@media (max-width:420px){.row{grid-template-columns:92px minmax(0,1fr) 56px}.row .lab{font-size:14px}}
+/* insights */
+.insights{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.insights li{background:var(--green-soft);border-radius:10px;padding:10px 12px;font-size:15.5px}
+.insights li.empty{background:var(--ground);color:var(--muted)}
+/* days */
+.days{display:flex;align-items:flex-end;gap:4px;height:90px;padding-top:6px}
+.day{flex:1;background:var(--green);border-radius:4px 4px 0 0;min-height:2px;position:relative}
+.day:hover::after,.day:focus::after{content:attr(data-t);position:absolute;bottom:100%;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);font-size:12px;padding:2px 6px;border-radius:4px;white-space:nowrap}
+.daylab{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted)}
+/* form */
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+form .full{grid-column:1/-1}
+form[hidden]{display:none}
+label{display:grid;gap:4px;font-size:14px;color:var(--muted)}
+input,select{font:inherit;color:var(--ink);background:var(--ground);border:1px solid var(--line);border-radius:10px;padding:9px 10px;min-width:0;width:100%}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+button{font:600 15px var(--body);border:0;border-radius:999px;padding:10px 18px;cursor:pointer;background:var(--pen);color:#fff}
+button.ghost{background:transparent;color:var(--muted);border:1px solid var(--line);padding:6px 12px;font-size:13.5px}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+/* leads list */
+.leads{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.lead{border:1px solid var(--line);border-radius:12px;padding:12px;display:grid;gap:8px;background:var(--paper)}
+.lead .top{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:14.5px}
+.chip{display:inline-block;border-radius:999px;padding:2px 10px;font-size:13px;background:var(--ground)}
+.chip.src{background:var(--sand)} .chip.topic{background:var(--blush)}
+.lead .note{font-size:14.5px;color:var(--muted);margin:0}
+.steps{display:flex;gap:4px;flex-wrap:wrap}
+.steps button{background:var(--ground);color:var(--muted);font-weight:500;font-size:13.5px;padding:6px 11px}
+.steps button[aria-pressed="true"]{background:var(--green);color:var(--paper)}
+.steps button.no[aria-pressed="true"]{background:var(--muted);color:var(--paper)}
+.empty{color:var(--muted);font-size:15px;margin:0}
+.del{margin-inline-start:auto}
+.confirm{display:flex;gap:6px;align-items:center;font-size:13.5px;margin-inline-start:auto}
+.confirm button{padding:5px 10px;font-size:13px}
+.msg{font-size:14px;color:var(--pen);margin:0}
+.ig{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap}
+.ig label{flex:1;min-width:140px}
+.spark{width:100%;height:60px;display:block}
+.tabs{display:flex;gap:6px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:4px;justify-self:start}
+.tabs button{background:transparent;color:var(--muted);font-weight:500;padding:8px 16px}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.pane{display:grid;gap:18px}.pane[hidden]{display:none}
+.few{margin:0;background:var(--sand);border-radius:10px;padding:10px 12px;font-size:14.5px}
+.row .val small.drop{color:var(--pen);font-weight:600}
+.grp{font-family:var(--display);font-size:15px;color:var(--muted);margin:6px 0 -2px}
+.insights li.warn{background:var(--blush)}
+@media (max-width:620px){.row{grid-template-columns:104px minmax(0,1fr) 60px}}
+footer{color:var(--muted);font-size:13.5px;text-align:center}
+</style>
+
+<main>
+  <header>
+    <h1>לוח המדידה של שיר</h1>
+    <p class="sub" id="asof">טוען נתונים…</p>
+  </header>
+
+  <div class="tabs" role="tablist" aria-label="תצוגה">
+    <button type="button" role="tab" id="tab-page" aria-controls="pane-page" aria-selected="true">מה קורה בדף</button>
+    <button type="button" role="tab" id="tab-biz" aria-controls="pane-biz" aria-selected="false">פניות וילדים</button>
+  </div>
+
+  <div class="pane" id="pane-page" role="tabpanel" aria-labelledby="tab-page">
+  <section class="kpis" aria-label="מספרים עיקריים על הדף">
+    <div class="kpi"><b id="p-visits">–</b><span>כניסות לדף</span></div>
+    <div class="kpi"><b id="p-quick">–</b><span>יצאו תוך 5 שניות</span></div>
+    <div class="kpi"><b id="p-end">–</b><span>גללו עד הסוף</span></div>
+    <div class="kpi main"><b id="p-contact">–</b><span>לחצו לפנות</span></div>
+  </section>
+  <p class="few" id="few" hidden></p>
+
+  <section class="card">
+    <h2>מה כדאי לשפר</h2>
+    <ul class="insights" id="pinsights"></ul>
+  </section>
+
+  <section class="card">
+    <div>
+      <h2>עד איפה ההורים גוללים</h2>
+      <p class="hint">כמה מהנכנסים הגיעו לכל חלק בדף, לפי הסדר מלמעלה למטה. המספר הקטן הוא כמה נשרו מהחלק הקודם, והנשירה הגדולה ביותר מסומנת.</p>
+    </div>
+    <div class="bars" id="scroll"></div>
+  </section>
+
+  <section class="card">
+    <div>
+      <h2>כמה זמן נשארים</h2>
+      <p class="hint">זמן שהדף היה פתוח מול העיניים (לא כולל זמן בלשונית אחרת). מעל 30 שניות זה בדרך כלל סימן שקוראים.</p>
+    </div>
+    <div class="bars" id="time"></div>
+  </section>
+
+  <section class="card">
+    <div>
+      <h2>על מה לוחצים</h2>
+      <p class="hint">האחוז הוא מתוך כל הכניסות לדף.</p>
+    </div>
+    <div class="bars" id="clicks"></div>
+  </section>
+
+  <section class="card">
+    <div>
+      <h2>מאיפה מגיעים לדף</h2>
+      <p class="hint">הקישור שממנו הגיעו. "ישירות" זה בדרך כלל ווטסאפ או אינסטגרם, שלא מעבירים את המקור.</p>
+    </div>
+    <div class="bars" id="refs"></div>
+  </section>
+
+
+  <section class="card" id="daysCard">
+    <div>
+      <h2>כניסות לדף לפי יום</h2>
+      <p class="hint" id="daysHint"></p>
+    </div>
+    <div class="days" id="days"></div>
+    <div class="daylab"><span id="dFirst"></span><span id="dLast"></span></div>
+  </section>
+  </div>
+
+  <div class="pane" id="pane-biz" role="tabpanel" aria-labelledby="tab-biz" hidden>
+
+  <section class="kpis" aria-label="מספרים עיקריים">
+    <div class="kpi"><b id="k-leads">0</b><span>פניות</span></div>
+    <div class="kpi"><b id="k-calls">0</b><span>שיחות היכרות</span></div>
+    <div class="kpi main"><b id="k-kids">0</b><span>ילדים שהתחילו</span></div>
+  </section>
+
+  <section class="card">
+    <h2>מה כדאי לדעת</h2>
+    <ul class="insights" id="insights"></ul>
+  </section>
+
+  <section class="card">
+    <div>
+      <h2>הדרך של ההורים</h2>
+      <p class="hint">מכמה אנשים שנכנסו לדף, ועד כמה ילדים התחילו. האחוז הוא מתוך השלב שלפניו.</p>
+    </div>
+    <div class="bars" id="funnel"></div>
+  </section>
+
+  <section class="card">
+    <div>
+      <h2>מאיפה מגיעים</h2>
+      <p class="hint">כל פנייה לפי הערוץ שממנו ההורה הגיע.</p>
+    </div>
+    <div class="legend"><span><i style="background:var(--green)"></i>פניות</span><span><i style="background:var(--pen)"></i>מתוכן ילדים שהתחילו</span></div>
+    <div class="bars" id="sources"></div>
+  </section>
+
+  <section class="card">
+    <div>
+      <h2>מה ההורים מחפשים</h2>
+      <p class="hint">הנושא של כל פנייה, יחד עם הלחיצות על "נשמע מוכר?" בדף. על זה כדאי לכתוב את הפוסטים הבאים.</p>
+    </div>
+    <div class="bars" id="topics"></div>
+  </section>
+
+
+  <section class="card">
+    <div class="bar">
+      <h2>פניות</h2>
+      <button type="button" id="toggleForm">פנייה חדשה</button>
+    </div>
+    <form id="leadForm" hidden>
+      <label>תאריך<input type="date" id="f-date" required></label>
+      <label>מאיפה הגיע/ה<select id="f-src"></select></label>
+      <label>על מה<select id="f-topic"></select></label>
+      <label>כיתה<select id="f-grade"></select></label>
+      <label class="full">הערה קצרה (בלי שם הילד)<input type="text" id="f-note" maxlength="140" placeholder="למשל: אמא שמעה עליי מהגננת"></label>
+      <div class="full bar"><button type="submit">שמירה</button><p class="msg" id="formMsg" role="status"></p></div>
+    </form>
+    <ul class="leads" id="leads"></ul>
+  </section>
+
+  <section class="card">
+    <div>
+      <h2>עוקבים באינסטגרם</h2>
+      <p class="hint">פעם בשבוע מספיק. רושמים את המספר מהפרופיל.</p>
+    </div>
+    <svg class="spark" id="spark" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"></svg>
+    <div class="ig">
+      <label>עוקבים היום<input type="number" id="ig-n" min="0" inputmode="numeric"></label>
+      <button type="button" id="ig-save">שמירה</button>
+    </div>
+    <p class="msg" id="igMsg" role="status"></p>
+  </section>
+
+  </div>
+
+  <footer>נתוני הדף מגיעים מ־GoatCounter ומתעדכנים דרך Claude. הפניות ומספר העוקבים מתעדכנים מיד.</footer>
+</main>
+
+<script>
+(function(){
+  var SOURCES=['גן','קבוצת קהילה','אינסטגרם','המלצה מהורה','איש מקצוע','גוגל','אחר'];
+  var TOPICS=['שיעורי בית','קריאה והבנה','ביטחון','מתמטיקה','רגשי וחברתי','אחר'];
+  var GRADES=['א׳','ב׳','ג׳','ד׳','ה׳','ו׳','ז׳','ח׳','ט׳','לא ידוע'];
+  var STAGES=[['new','פנייה'],['call','שיחה'],['meet','מפגש היכרות'],['started','התחיל'],['no','לא התאים']];
+  var RANK={new:0,call:1,meet:2,started:3,no:-1};
+  var FAMILIAR={'familiar-1':'ביטחון','familiar-2':'שיעורי בית','familiar-3':'קריאה והבנה'};
+  var $=function(id){return document.getElementById(id)};
+  function opts(sel,arr){arr.forEach(function(v){var o=document.createElement('option');o.textContent=v;o.value=v;sel.appendChild(o)})}
+  opts($('f-src'),SOURCES);opts($('f-topic'),TOPICS);opts($('f-grade'),GRADES);
+  $('f-date').value=new Date().toISOString().slice(0,10);
+
+  var state={leads:[],site:null,ig:[]}, db=null, canWrite=true;
+
+  function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
+  function pct(a,b){return b>0?Math.round(a/b*100)+'%':''}
+  function reached(l,stage){return l.status!=='no'?RANK[l.status]>=RANK[stage]:(l.maxStage!=null&&l.maxStage>=RANK[stage])}
+
+  function barRow(label,val,max,cls,sub,val2){
+    var r=el('div','row'); r.appendChild(el('span','lab',label));
+    var t=el('div','track'); var f=el('div','fill'+(cls?' '+cls:'')); f.style.width=(max>0&&val!=null?Math.max(val/max*100,val>0?2:0):0)+'%'; t.appendChild(f);
+    if(val2!=null&&max>0){var f2=el('div','fill2');f2.style.width=(val2/max*100)+'%';t.appendChild(f2)}
+    r.appendChild(t); var v=el('span','val',val==null?'–':String(val)); if(sub){v.appendChild(el('small','',sub))} r.appendChild(v); return r;
+  }
+
+  function siteNums(){
+    var s=state.site; if(!s) return null;
+    var clicks=s.clicks||{}, wa=0; Object.keys(clicks).forEach(function(k){if(/whatsapp$|^familiar-/.test(k))wa+=clicks[k]||0});
+    return {visits:s.visits||0, wa:wa, clicks:clicks, sources:s.sources||{}, days:s.days||[], updatedAt:s.updatedAt, period:s.period};
+  }
+
+  function render(){
+    var L=state.leads, S=siteNums();
+    var nLeads=L.length, nCall=L.filter(function(l){return reached(l,'call')}).length,
+        nMeet=L.filter(function(l){return reached(l,'meet')}).length, nKids=L.filter(function(l){return l.status==='started'}).length;
+    $('k-leads').textContent=nLeads; $('k-calls').textContent=nCall; $('k-kids').textContent=nKids;
+    $('asof').textContent=S&&S.updatedAt?('נתוני האתר עודכנו: '+new Date(S.updatedAt).toLocaleDateString('he-IL',{day:'numeric',month:'long'})+(S.period?' · '+S.period:'')):'נתוני האתר עוד לא חוברו. הפניות מתעדכנות מיד.';
+
+    // funnel
+    var F=$('funnel'); F.textContent='';
+    var steps=[['כניסות לדף',S?S.visits:null],['לחצו לכתוב',S?S.wa:null],['פניות',nLeads],['שיחות',nCall],['מפגשי היכרות',nMeet],['התחילו',nKids]];
+    var max=Math.max.apply(null,steps.map(function(s){return s[1]||0}).concat([1]));
+    steps.forEach(function(s,i){var prev=i?steps[i-1][1]:null; F.appendChild(barRow(s[0],s[1],max,s[1]==null?'wait':(i===5?'pen':''),s[1]==null?'ממתין':(i&&prev?pct(s[1],prev):'')))});
+
+    // sources
+    var SR=$('sources'); SR.textContent='';
+    var bySrc={}; SOURCES.forEach(function(k){bySrc[k]={n:0,k:0}}); L.forEach(function(l){var s=bySrc[l.source]||(bySrc[l.source]={n:0,k:0});s.n++;if(l.status==='started')s.k++});
+    var srcList=Object.keys(bySrc).filter(function(k){return bySrc[k].n>0}).sort(function(a,b){return bySrc[b].n-bySrc[a].n});
+    if(!srcList.length) SR.appendChild(el('p','empty','יופיע אחרי הפנייה הראשונה.'));
+    var smax=Math.max.apply(null,srcList.map(function(k){return bySrc[k].n}).concat([1]));
+    srcList.forEach(function(k){SR.appendChild(barRow(k,bySrc[k].n,smax,'',bySrc[k].k?bySrc[k].k+' התחילו':'',bySrc[k].k))});
+
+    // topics
+    var TP=$('topics'); TP.textContent='';
+    var byT={}; TOPICS.forEach(function(t){byT[t]={leads:0,clicks:0}});
+    L.forEach(function(l){(byT[l.topic]||(byT[l.topic]={leads:0,clicks:0})).leads++});
+    if(S){Object.keys(FAMILIAR).forEach(function(k){byT[FAMILIAR[k]].clicks+=S.clicks[k]||0})}
+    var tl=Object.keys(byT).filter(function(t){return byT[t].leads+byT[t].clicks>0}).sort(function(a,b){return (byT[b].leads+byT[b].clicks)-(byT[a].leads+byT[a].clicks)});
+    if(!tl.length) TP.appendChild(el('p','empty','יופיע אחרי הפניות הראשונות או הלחיצות הראשונות בדף.'));
+    var tmax=Math.max.apply(null,tl.map(function(t){return byT[t].leads+byT[t].clicks}).concat([1]));
+    tl.forEach(function(t){var o=byT[t];TP.appendChild(barRow(t,o.leads+o.clicks,tmax,'sand',(o.leads?(o.leads===1?'פנייה 1':o.leads+' פניות'):'')+(o.leads&&o.clicks?' · ':'')+(o.clicks?(o.clicks===1?'לחיצה 1':o.clicks+' לחיצות'):'')))});
+
+    // days
+    var D=$('days'); D.textContent='';
+    if(S&&S.days.length){
+      var days=S.days.slice(-21), dmax=Math.max.apply(null,days.map(function(d){return d.v}).concat([1]));
+      days.forEach(function(d){var b=el('div','day');b.style.height=(d.v/dmax*100)+'%';b.tabIndex=0;b.setAttribute('data-t',d.d.slice(8,10)+'/'+d.d.slice(5,7)+': '+d.v);b.setAttribute('aria-label',d.d+' '+d.v+' כניסות');D.appendChild(b)});
+      $('dFirst').textContent=days[0].d.slice(8,10)+'/'+days[0].d.slice(5,7); $('dLast').textContent=days[days.length-1].d.slice(8,10)+'/'+days[days.length-1].d.slice(5,7);
+      $('daysHint').textContent='עמודה לכל יום. גבוה יותר = יותר כניסות. לחיצה על עמודה מראה את המספר.';
+    } else {$('dFirst').textContent='';$('dLast').textContent='';$('daysHint').textContent='יופיע אחרי שהדף יעלה לאוויר ו־GoatCounter יחובר.'}
+
+    // insights
+    var I=$('insights'); I.textContent=''; var ins=[];
+    if(S&&S.visits>0){ins.push('מתוך '+S.visits+' כניסות לדף, '+S.wa+' לחצו לכתוב לשיר ('+pct(S.wa,S.visits)+').');}
+    if(nLeads>=3){var best=srcList[0];ins.push('הכי הרבה פניות הגיעו מ־'+best+' ('+bySrc[best].n+' מתוך '+nLeads+').');
+      var kidsBest=srcList.slice().sort(function(a,b){return bySrc[b].k-bySrc[a].k})[0]; if(bySrc[kidsBest].k>0&&kidsBest!==best)ins.push('אבל הכי הרבה ילדים שהתחילו הגיעו מ־'+kidsBest+'. כדאי להשקיע שם.');}
+    if(nKids>0){ins.push('בערך '+Math.round(nLeads/nKids*10)/10+' פניות לכל ילד שהתחיל.');}
+    if(tl.length&&(byT[tl[0]].leads+byT[tl[0]].clicks)>=3){ins.push('הנושא שהכי מעסיק הורים: '+tl[0]+'. זה נושא טוב לפוסט הבא.');}
+    var stale=L.filter(function(l){return l.status==='new'&&(Date.now()-new Date(l.date).getTime())>3*864e5}).length;
+    if(stale) ins.push(stale+' פניות מחכות יותר מ־3 ימים בלי שיחה.');
+    if(!ins.length){var li=el('li','empty','עוד מוקדם. אחרי כמה פניות יופיעו כאן מסקנות, למשל מאיזה ערוץ מגיעים הכי הרבה ילדים.');I.appendChild(li)}
+    ins.forEach(function(t){I.appendChild(el('li','',t))});
+
+    renderLeads(); renderIg(); renderPage(S);
+  }
+
+  function renderLeads(){
+    var U=$('leads'); U.textContent='';
+    if(!state.leads.length){U.appendChild(el('p','empty','עוד אין פניות. כשמגיעה הודעה בווטסאפ, לוחצים "פנייה חדשה" וממלאים בשנייה.'));return}
+    state.leads.forEach(function(l){
+      var li=el('li','lead'); var top=el('div','top');
+      top.appendChild(el('span','',new Date(l.date).toLocaleDateString('he-IL',{day:'numeric',month:'numeric'})));
+      top.appendChild(el('span','chip src',l.source)); top.appendChild(el('span','chip topic',l.topic)); if(l.grade&&l.grade!=='לא ידוע')top.appendChild(el('span','chip','כיתה '+l.grade));
+      if(canWrite){var d=el('button','ghost del','מחיקה');d.type='button';d.onclick=function(){askDelete(top,d,l)};top.appendChild(d)}
+      li.appendChild(top); if(l.note) li.appendChild(el('p','note',l.note));
+      var st=el('div','steps'); st.setAttribute('role','group'); st.setAttribute('aria-label','שלב');
+      STAGES.forEach(function(s){var b=el('button',s[0]==='no'?'no':'',s[1]);b.type='button';b.setAttribute('aria-pressed',String(l.status===s[0]));b.disabled=!canWrite;b.onclick=function(){setStage(l,s[0])};st.appendChild(b)});
+      li.appendChild(st); U.appendChild(li);
+    });
+  }
+  function askDelete(top,btn,l){
+    btn.hidden=true; var c=el('span','confirm'); c.appendChild(el('span','','למחוק?'));
+    var y=el('button','','כן');y.type='button';y.onclick=function(){db.doc('leads/'+l.id).delete().catch(fail)};
+    var n=el('button','ghost','לא');n.type='button';n.onclick=function(){c.remove();btn.hidden=false};
+    c.appendChild(y);c.appendChild(n);top.appendChild(c);
+  }
+  function setStage(l,stage){
+    if(!db||l.status===stage)return;
+    var mx=Math.max(l.maxStage||0,RANK[stage]);
+    db.doc('leads/'+l.id).update({status:stage,maxStage:mx,updatedAt:new Date().toISOString()}).catch(fail);
+  }
+  function fail(e){ if(e&&e.code==='invalid_argument'){canWrite=false;render();$('formMsg').textContent='אין לך הרשאה לעדכן. בקשו מנמרוד גישת Contributor.'} else {$('formMsg').textContent='השמירה לא הצליחה. נסו שוב.'} }
+
+  function renderIg(){
+    var pts=state.ig.slice(-12), svg=$('spark'); svg.innerHTML='';
+    if(pts.length<2){ $('igMsg').textContent=pts.length?('נרשם: '+pts[0].n+' עוקבים'):''; return }
+    var vals=pts.map(function(p){return p.n}), mn=Math.min.apply(null,vals), mx=Math.max.apply(null,vals), rg=Math.max(mx-mn,1);
+    var d=pts.map(function(p,i){var x=300-(i/(pts.length-1))*296-2, y=56-((p.n-mn)/rg)*50;return (i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)}).join(' ');
+    var path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',d);path.setAttribute('fill','none');path.setAttribute('stroke','currentColor');path.setAttribute('stroke-width','2.5');path.style.color='var(--green)';svg.appendChild(path);
+    var diff=vals[vals.length-1]-vals[0]; $('igMsg').textContent='עכשיו '+vals[vals.length-1]+' עוקבים'+(diff?(' · '+(diff>0?'+':'')+diff+' מאז '+new Date(pts[0].d).toLocaleDateString('he-IL',{day:'numeric',month:'numeric'})):'');
+  }
+
+
+  var SECS=[['sec-3-things','3 דברים'],['sec-about','קצת עליי'],['sec-steps','איך מתחילים'],['sec-tips','טיפים'],['sec-faq','שאלות'],['sec-end','סוף הדף']];
+  var TIMES=[[0,'פחות מ־5 שניות'],[5,'5 עד 15 שניות'],[15,'15 עד 30 שניות'],[30,'חצי דקה עד דקה'],[60,'דקה עד שתיים'],[120,'יותר משתי דקות']];
+  var CLICKS=[['כפתורי פנייה',[['hero-whatsapp','ווטסאפ למעלה'],['float-whatsapp','ווטסאפ צף'],['end-whatsapp','ווטסאפ בסוף הדף'],['hero-call','להתקשר למעלה']]],
+    ['נשמע מוכר?',[['familiar-1','"לא יודע" לפני שניסה'],['familiar-2','להתחיל שיעורי בית'],['familiar-3','קורא בלי להבין']]],
+    ['סימנים לעניין',[['tips-swipe','החליקו בטיפים'],['faq-1','שאלה: גילאים'],['faq-2','שאלה: על מה עובדים'],['faq-3','שאלה: מסמכים'],['faq-4','שאלה: איפה נפגשים']]]];
+  function pc(a,b){return b>0?Math.round(a/b*100):0}
+  function renderPage(S){
+    var ids=['scroll','time','clicks','refs']; ids.forEach(function(i){$(i).textContent=''});
+    var PI=$('pinsights'); PI.textContent='';
+    if(!S||!S.visits){['p-visits','p-quick','p-end','p-contact'].forEach(function(i){$(i).textContent='–'});
+      ids.forEach(function(i){$(i).appendChild(el('p','empty','יופיע אחרי שהדף יעלה לאוויר והנתונים יחוברו.'))});
+      PI.appendChild(el('li','empty','כשיהיו נתונים יופיעו כאן המסקנות: איפה ההורים נוטשים, מה הם קוראים ועל מה הם לוחצים.'));$('few').hidden=true;return}
+    var V=S.visits, C=S.clicks, g=function(k){return C[k]||0};
+    var contact=g('hero-whatsapp')+g('float-whatsapp')+g('end-whatsapp')+g('hero-call')+g('end-call')+g('familiar-1')+g('familiar-2')+g('familiar-3');
+    var quick=Math.max(0,V-g('time-5s'));
+    $('p-visits').textContent=V; $('p-quick').textContent=pc(quick,V)+'%'; $('p-end').textContent=pc(g('sec-end'),V)+'%'; $('p-contact').textContent=pc(contact,V)+'%';
+    var few=$('few'); few.hidden=V>=50; few.textContent='יש רק '+V+' כניסות. עד בערך 50 האחוזים יקפצו הרבה, אז כדאי להסתכל על הכיוון ולא על המספר המדויק.';
+    // scroll funnel
+    var rows=[['המסך הראשון',V]].concat(SECS.map(function(x){return [x[1],g(x[0])]}));
+    var worst=-1,wd=0; for(var i=1;i<rows.length;i++){var d=rows[i-1][1]-rows[i][1]; if(d>wd){wd=d;worst=i}}
+    rows.forEach(function(r,i){var drop=i?rows[i-1][1]-r[1]:0; var row=barRow(r[0],r[1],V,i===worst?'pen':'',drop>0?'נשרו '+pc(drop,V)+'%':'');
+      row.querySelector('.val').firstChild.textContent=pc(r[1],V)+'%'; if(i===worst)row.querySelector('.val small').className='drop';
+      $('scroll').appendChild(row)});
+    // time buckets (cumulative → exclusive)
+    var cum=function(t){return t===0?V:g('time-'+t+'s')};
+    TIMES.forEach(function(t,i){var n=cum(t[0])-(i<TIMES.length-1?cum(TIMES[i+1][0]):0); n=Math.max(0,n);
+      $('time').appendChild(barRow(t[1],n,V,t[0]>=30?'':(t[0]===0?'wait':'sand'),pc(n,V)+'%'))});
+    // clicks
+    var cmax=1; CLICKS.forEach(function(gr){gr[1].forEach(function(c){cmax=Math.max(cmax,g(c[0]))})});
+    CLICKS.forEach(function(gr){$('clicks').appendChild(el('p','grp',gr[0]));gr[1].forEach(function(c){$('clicks').appendChild(barRow(c[1],g(c[0]),cmax,gr[0]==='כפתורי פנייה'?'pen':(gr[0]==='נשמע מוכר?'?'sand':''),pc(g(c[0]),V)+'%'))})});
+    // referrers
+    var R=S.sources||{}, rk=Object.keys(R).sort(function(a,b){return R[b]-R[a]}).slice(0,8);
+    if(!rk.length)$('refs').appendChild(el('p','empty','עוד אין נתונים.'));
+    var rmax=Math.max.apply(null,rk.map(function(k){return R[k]}).concat([1]));
+    rk.forEach(function(k){$('refs').appendChild(barRow(k,R[k],rmax,'',pc(R[k],V)+'%'))});
+    // insights
+    var ins=[];
+    var qp=pc(quick,V); if(qp>=50)ins.push(['warn',qp+'% יוצאים תוך 5 שניות. המסך הראשון (כותרת, תמונה ומשפט הפתיחה) לא תופס אותם, ושם כדאי לשפר קודם.']);
+    else ins.push(['',qp+'% יוצאים תוך 5 שניות. המסך הראשון עובד סביר.']);
+    if(worst>0&&pc(wd,V)>=15)ins.push(['warn','הנשירה הגדולה ביותר היא לפני "'+rows[worst][0]+'" ('+pc(wd,V)+'% מהנכנסים). כדאי לקצר את החלק שלפניו או להפוך אותו לקליל יותר.']);
+    var read=g('time-30s'); ins.push(['',pc(read,V)+'% נשארו מעל חצי דקה, כלומר כנראה קראו.']);
+    var endp=pc(g('sec-end'),V), cp=pc(contact,V);
+    if(endp>=30&&cp<5)ins.push(['warn','הרבה מגיעים לסוף ('+endp+'%) אבל מעטים פונים ('+cp+'%). הקריאה לפעולה לא משכנעת מספיק, או שחסר משהו שיוריד מהם חשש.']);
+    var fam=CLICKS[1][1].slice().sort(function(a,b){return g(b[0])-g(a[0])}); if(g(fam[0][0])>=2)ins.push(['','ב"נשמע מוכר?" הכי הרבה לוחצים על '+fam[0][1]+'. זה נושא טוב להדגיש בדף ובפוסטים.']);
+    var faqs=CLICKS[2][1].slice(1).sort(function(a,b){return g(b[0])-g(a[0])}); if(g(faqs[0][0])>=3)ins.push(['','השאלה שהכי פותחים: '+faqs[0][1].replace('שאלה: ','')+'. אם הרבה מתעניינים בה, אפשר להעלות את התשובה גבוה יותר בדף.']);
+    ins.forEach(function(t){PI.appendChild(el('li',t[0],t[1]))});
+  }
+  // tabs
+  function showTab(k){['page','biz'].forEach(function(t){$('tab-'+t).setAttribute('aria-selected',String(t===k));$('pane-'+t).hidden=t!==k});try{localStorage.setItem('shirTab',k)}catch(e){}}
+  $('tab-page').onclick=function(){showTab('page')}; $('tab-biz').onclick=function(){showTab('biz')};
+  try{if(localStorage.getItem('shirTab')==='biz')showTab('biz')}catch(e){}
+
+  $('toggleForm').onclick=function(){var f=$('leadForm');f.hidden=!f.hidden;if(!f.hidden)$('f-src').focus()};
+  $('leadForm').addEventListener('submit',function(e){
+    e.preventDefault(); if(!db){$('formMsg').textContent='הלוח עוד לא מחובר. נסו שוב בעוד רגע.';return}
+    var data={date:$('f-date').value,source:$('f-src').value,topic:$('f-topic').value,grade:$('f-grade').value,note:$('f-note').value.trim(),status:'new',maxStage:0,createdAt:new Date().toISOString()};
+    db.collection('leads').add(data).then(function(){$('f-note').value='';$('formMsg').textContent='נשמר';$('leadForm').hidden=true;setTimeout(function(){$('formMsg').textContent=''},2000)}).catch(fail);
+  });
+  $('ig-save').onclick=function(){
+    var n=parseInt($('ig-n').value,10); if(!(n>=0)){$('igMsg').textContent='רשמו מספר';return} if(!db)return;
+    var today=new Date().toISOString().slice(0,10), pts=state.ig.filter(function(p){return p.d!==today}).concat([{d:today,n:n}]).slice(-52);
+    db.doc('metrics/instagram').set({points:pts}).then(function(){$('ig-n').value=''}).catch(function(e){$('igMsg').textContent='השמירה לא הצליחה.'});
+  };
+
+  render();
+  if(!window.claude||!window.claude.use){$('asof').textContent='הלוח עובד רק בתוך Claude.';return}
+  window.claude.use('db').then(function(d){
+    if(!d){$('asof').textContent='אין חיבור לנתונים בתצוגה הזאת.';canWrite=false;render();return}
+    db=d;
+    db.collection('leads').orderBy('date','desc').onSnapshot(function(snap){state.leads=snap.docs.map(function(x){var o=Object.assign({},x.data());o.id=x.id;return o});render()},function(){});
+    db.doc('site/stats').onSnapshot(function(s){state.site=s.exists?s.data():null;render()},function(){});
+    db.doc('metrics/instagram').onSnapshot(function(s){state.ig=s.exists&&s.data().points?s.data().points.slice():[];render()},function(){});
+    window.claude.use('user').then(function(u){if(u&&u.can){u.can('data.write').then(function(c){if(c===false){canWrite=false;$('toggleForm').hidden=true;$('ig-save').disabled=true;render()}})}});
+  });
+})();
+</script>
+
+</body></html>

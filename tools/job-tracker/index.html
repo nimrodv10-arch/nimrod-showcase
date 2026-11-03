@@ -1,0 +1,220 @@
+<!doctype html><html><head><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap"><meta name="robots" content="noindex,nofollow"><script>(function () {
+  var day = 864e5, now = Date.now(), iso = function (n) { return new Date(now - n * day).toISOString(); };
+  var J = {};
+  J['jobs/contoso'] = { company: 'Contoso', role: 'PPC Team Lead', status: 'applied', location: 'תל אביב · היברידי', addedAt: iso(9), verdict: 'להגיש עכשיו', source: 'לינקדאין',
+    companyBrief: 'חברת SaaS לתשלומים לעסקים קטנים, כ-300 עובדים, מגייסת צוות שיווק ביצועים חדש.', roleSummary: 'לנהל צוות של 3 מנהלי קמפיינים ואת תקציב ה-Search וה-PMax בכמה שווקים.',
+    score: { total: 86, conf: 'גבוה', verdict: 'התאמה חזקה: ניהול צוות PPC ובעלות על תקציב הם בדיוק הניסיון שלך.', parts: [['דרישות מול הניסיון', 23, 25], ['התפקיד והצמיחה', 22, 25], ['סיכוי להתקבל', 16, 20], ['החברה והתנאים', 25, 30]], flags: ['גודל התקציב החודשי', 'כמה ימים במשרד'],
+      pros: ['ניהול צוות, לא רק ביצוע', 'B2B, כמו רוב הניסיון שלך', 'תקציב משמעותי'], cons: ['דרישה ל-HubSpot, עבדת בעיקר עם Salesforce'], raise: ['פרויקט קטן ב-HubSpot לפני הראיון', 'הפניה מעובד בחברה'] },
+    whyFit: ['5 שנים של PPC בתחרות גבוהה', 'הובלת צוות ובעלות על P&L', 'ניסיון ב-B2B ובאתרי השוואה'], gaps: ['HubSpot: קורס קצר של שבוע', 'שווקים באירופה: להדגיש עבודה מול שווקים זרים'],
+    requirements: [{ req: '5+ שנות ניסיון ב-Google Ads', type: 'must', match: 'strong', evidence: '5 שנים, PPC מ-junior ועד team lead' }, { req: 'ניהול צוות', type: 'must', match: 'strong', evidence: 'ראש צוות של 3' }, { req: 'עבודה עם HubSpot', type: 'nice', match: 'gap', evidence: 'להשלים בקורס קצר' }, { req: 'אנגלית ברמה גבוהה', type: 'must', match: 'strong', evidence: 'אנגלית שוטפת' }],
+    prep: ['להכין דוגמה של צמיחה שהובלת, עם מספרים', 'לחשוב על 3 שאלות על מבנה הצוות'], nextStep: 'לחכות לחזרה עד יום חמישי', myNotes: '' };
+  J['jobs/northwind'] = { company: 'Northwind', role: 'Performance Marketing Manager', status: 'interview', location: 'הרצליה', addedAt: iso(16), verdict: 'להגיש עם CV מותאם', source: 'הפניה',
+    companyBrief: 'רשת מסחר מקוון בתחום הבית והגן, פעילה בישראל ובארה״ב.', roleSummary: 'אחריות על כל הערוצים בתשלום: Google, Meta ו-TikTok, מול יעד CPA.',
+    score: { total: 78, conf: 'בינוני', verdict: 'מתאים, אבל Meta ו-TikTok הם חצי מהתפקיד.', parts: [['דרישות מול הניסיון', 18, 25], ['התפקיד והצמיחה', 21, 25], ['סיכוי להתקבל', 15, 20], ['החברה והתנאים', 24, 30]], flags: [],
+      pros: ['הפניה מבפנים', 'אחריות רחבה על כל הערוצים'], cons: ['B2C, פחות מוכר לך'], raise: ['לסיים את תוכנית ה-Meta Ads'] },
+    whyFit: ['ניהול תקציבים גדולים מול CPA', 'אופטימיזציה מבוססת דאטה'], gaps: ['Meta ו-TikTok: ללמוד את הבסיס בשבועיים'],
+    requirements: [{ req: 'ניסיון ב-Meta Ads', type: 'must', match: 'partial', evidence: 'בסיס, בתהליך למידה' }, { req: 'Google Ads ו-PMax', type: 'must', match: 'strong', evidence: '5 שנים' }, { req: 'GA4 ו-Looker Studio', type: 'nice', match: 'strong', evidence: 'דשבורדים שבניתי' }],
+    prep: ['ראיון שני ביום ראשון: מקרה בוחן של ירידה ב-ROAS'], nextStep: 'ראיון שני ביום ראשון', myNotes: 'המראיינת אהבה את הדשבורד של הלידים' };
+  J['jobs/fabrikam'] = { company: 'Fabrikam', role: 'Growth Marketing Manager', status: 'to_apply', location: 'רמת גן', addedAt: iso(3), verdict: 'להגיש עם CV מותאם', source: 'אתר החברה',
+    companyBrief: 'סטארט-אפ בתחום הבריאות הדיגיטלית, אחרי סבב A.', roleSummary: 'לבנות את מנוע הצמיחה מאפס: ערוצים, ניסויים ומדידה.',
+    score: { total: 71, conf: 'בינוני', verdict: 'הזדמנות לגדול, עם יותר אי-ודאות.', parts: [['דרישות מול הניסיון', 17, 25], ['התפקיד והצמיחה', 22, 25], ['סיכוי להתקבל', 12, 20], ['החברה והתנאים', 20, 30]], flags: ['שכר וחבילת אופציות'], pros: ['תפקיד רחב'], cons: ['צוות קטן מאוד'], raise: [] },
+    whyFit: ['ניסיון בבניית אתרים חדשים מאפס'], gaps: ['ניסויי מוצר'], requirements: [], prep: [], nextStep: 'להתאים את ה-CV לצמיחה', myNotes: '' };
+  J['jobs/widewold'] = { company: 'Wide World Importers', role: 'Head of Acquisition', status: 'new', location: 'פתח תקווה', addedAt: iso(1), verdict: 'רק עם הפניה', source: 'קבוצת וואטסאפ',
+    companyBrief: 'חברת לוגיסטיקה שנכנסת למכירות אונליין.', roleSummary: 'להקים מחלקת רכישת לקוחות.', score: { total: 62, conf: 'נמוך', verdict: 'בכיר מעט מהניסיון הנוכחי.', parts: [], flags: [], pros: [], cons: [], raise: [] },
+    whyFit: [], gaps: [], requirements: [], prep: [], nextStep: '', myNotes: '' };
+  J['jobs/tailspin'] = { company: 'Tailspin Toys', role: 'Paid Social Specialist', status: 'skipped', location: 'חיפה', addedAt: iso(21), verdict: 'לא מתאים', source: 'לוח דרושים',
+    companyBrief: 'מותג צעצועים.', roleSummary: 'ביצוע קמפיינים ב-Meta.', score: { total: 48, conf: 'גבוה', verdict: 'תפקיד ביצועי, צעד אחורה.', parts: [], flags: [], pros: [], cons: ['רמה זוטרה'], raise: [] },
+    whyFit: [], gaps: [], requirements: [], prep: [], nextStep: '', myNotes: 'ויתרתי: תפקיד זוטר מדי' };
+  window.DEMO_DB = J;
+})();
+</script><script src="../../assets/claude-shim.js"></script><style>.sc-bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:8px max(16px,env(safe-area-inset-right,0px)) 8px max(16px,env(safe-area-inset-left,0px));background:#2D354C;color:#E6E9F2;font:500 13px/18px "Rubik",system-ui,sans-serif;direction:rtl}.sc-bar a,.sc-bar button{color:#FCFAFF;font:inherit;font-weight:600;background:none;border:0;padding:6px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}.sc-bar span{opacity:.85}.sc-bar .sc-sp{flex:1}</style><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><div class="sc-bar" role="note"><a href="../../">→ לכל הכלים</a><span>נתוני דוגמה. מה שתשנה נשמר רק בדפדפן שלך.</span><span class="sc-sp"></span><button type="button" onclick="resetDemo()">איפוס הדוגמה</button></div>
+<title>Nimrod Job Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: pipeline summary on top, job list sorted by fit, each job expands into a requirements sheet */
+:root{
+  --bg:#f3f6f6; --surface:#ffffff; --ink:#122427; --muted:#536a6d; --line:#d5e0e0;
+  --accent:#0d6e6e; --accent-soft:#dcefee; --signal:#b86a00; --signal-soft:#fbecd5;
+  --good:#1d7a3e; --good-soft:#dff1e5; --warn:#a15c00; --warn-soft:#fdf0db; --bad:#b0303a; --bad-soft:#f8e1e3;
+  --f-display:"Rubik","Arial Hebrew",Arial,sans-serif;
+  --f-body:"Rubik","Arial Hebrew",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1819; --surface:#152224; --ink:#e3eeee; --muted:#93abad; --line:#284043;
+  --accent:#5cc4c0; --accent-soft:#163a3a; --signal:#f0a94a; --signal-soft:#3a2a12;
+  --good:#6fd394; --good-soft:#143322; --warn:#f0b25c; --warn-soft:#3a2b13; --bad:#f08a92; --bad-soft:#3d1a1e;
+  color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#0e1819; --surface:#152224; --ink:#e3eeee; --muted:#93abad; --line:#284043;
+  --accent:#5cc4c0; --accent-soft:#163a3a; --signal:#f0a94a; --signal-soft:#3a2a12;
+  --good:#6fd394; --good-soft:#143322; --warn:#f0b25c; --warn-soft:#3a2b13; --bad:#f08a92; --bad-soft:#3d1a1e;
+  color-scheme:dark;}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;margin:0}
+.wrap{max-width:980px;margin:0 auto;padding-inline:16px;padding-block:28px 64px;display:grid;gap:20px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:clamp(26px,5vw,36px);font-weight:800}
+h3{font-size:17px;font-weight:700}
+p{margin:0}
+.lede{color:var(--muted);max-width:65ch}
+.mono{font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate}
+.how{background:var(--signal-soft);border-inline-start:4px solid var(--signal);padding:12px 14px;border-radius:6px;font-size:15px}
+.funnel{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:2px;cursor:pointer;text-align:right;font:inherit;color:inherit}
+.stage b{font-family:var(--f-mono);font-size:22px;font-variant-numeric:tabular-nums}
+.stage span{font-size:13px;color:var(--muted)}
+.stage[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.list{display:grid;gap:10px}
+.job{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.job>button.head{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;padding:14px 16px;cursor:pointer}
+.job>button.head:focus-visible{outline:2px solid var(--signal);outline-offset:-2px}
+.fit{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font:600 20px var(--f-mono);border:3px solid currentColor}
+.fit.hi{color:var(--good)} .fit.mid{color:var(--warn)} .fit.lo{color:var(--bad)}
+.title{min-width:0;display:grid;gap:2px}
+.title b{font-family:var(--f-display);font-size:17px}
+.title span{font-size:14px;color:var(--muted)}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;white-space:nowrap;background:var(--accent-soft);color:var(--accent)}
+.s-applied,.s-interview{background:var(--good-soft);color:var(--good)}
+.s-offer{background:var(--good);color:var(--surface)}
+.s-rejected,.s-skipped{background:var(--bad-soft);color:var(--bad)}
+.s-to_apply{background:var(--warn-soft);color:var(--warn)}
+.body{border-top:1px solid var(--line);padding:16px;display:grid;gap:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px}
+.box{display:grid;gap:6px;min-width:0}
+.box h4{margin:0;font:700 13px var(--f-display);color:var(--muted);letter-spacing:.02em}
+ul.clean{margin:0;padding-inline-start:20px;display:grid;gap:4px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:600px}
+th,td{text-align:right;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:700 12.5px var(--f-display);color:var(--muted);background:var(--bg)}
+tr:last-child td{border-bottom:0}
+.m{font-size:12px;font-weight:600;padding:1px 8px;border-radius:999px;white-space:nowrap}
+.m-strong{background:var(--good-soft);color:var(--good)} .m-partial{background:var(--warn-soft);color:var(--warn)} .m-gap{background:var(--bad-soft);color:var(--bad)}
+.t-must{font-weight:600} .t-nice{color:var(--muted)}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.controls label{display:grid;gap:4px;font-size:13px;color:var(--muted)}
+select,textarea,input{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:7px 9px}
+textarea{width:100%;min-height:64px;resize:vertical}
+.btn{font:600 14px var(--f-body);border:1px solid var(--accent);background:var(--accent);color:var(--surface);padding:8px 14px;border-radius:8px;cursor:pointer}
+.btn:disabled{opacity:.5;cursor:default}
+.saved{font-size:13px;color:var(--good)}
+a{color:var(--accent)}
+.empty{background:var(--surface);border:1px dashed var(--line);border-radius:10px;padding:28px;text-align:center;color:var(--muted)}
+.note{font-size:13px;color:var(--muted)}
+@media (max-width:520px){.job>button.head{grid-template-columns:48px 1fr}.job>button.head .pill{grid-column:2}.fit{width:44px;height:44px;font-size:17px}}
+</style>
+
+<div class="wrap" dir="rtl" lang="he">
+  <header style="display:grid;gap:8px">
+    <h1>מעקב משרות</h1>
+    <p class="lede">כל משרה שאתה שולח מקבלת כאן: מה החברה, ציון התאמה 1–100, ופירוק של הדרישות מול מה שיש לך. אתה מעדכן סטטוס והערות.</p>
+  </header>
+  <div class="how"><b>איך מוסיפים משרה:</b> שולחים קישור (או צילום מסך / טקסט של המודעה) בשרשור בפרויקט NIMS CAREER. Claude ממפה ומוסיף לכאן.</div>
+
+  <div class="funnel" id="funnel" role="group" aria-label="סינון לפי סטטוס"></div>
+  <div class="list" id="list"><div class="empty">טוען משרות…</div></div>
+  <p class="note">הציון (1–100): דרישות מול הניסיון 25, התפקיד והצמיחה שלך 25, סיכוי להתקבל 20, החברה והתנאים 30. 80+ = להגיש עכשיו; 65–79 = להגיש עם CV מותאם; 50–64 = רק עם הפניה או סיבה טובה.</p>
+</div>
+
+<script>
+(async function(){
+  var STATUSES=[['new','חדש'],['to_apply','להגיש'],['applied','הוגש'],['interview','בראיונות'],['offer','הצעה'],['rejected','נדחה'],['skipped','ויתרתי']];
+  var SL=Object.fromEntries(STATUSES), MATCH={strong:'יש',partial:'חלקי',gap:'פער'};
+  var listEl=document.getElementById('list'), funnelEl=document.getElementById('funnel');
+  var jobs=[], filter=null, open={}, canWrite=true, db=null;
+  function el(t,c,txt){var e=document.createElement(t);if(c)e.className=c;if(txt!=null)e.textContent=txt;return e}
+  function sc(j){return j.score&&j.score.total!=null?j.score.total:(j.fit?j.fit*10:0)}
+  function fitCls(f){return f>=75?'hi':f>=60?'mid':'lo'}
+
+  function renderFunnel(){
+    funnelEl.textContent='';
+    var all=el('button','stage');all.setAttribute('aria-pressed',filter===null);all.appendChild(el('b',null,String(jobs.length)));all.appendChild(el('span',null,'הכל'));
+    all.onclick=function(){filter=null;render()};funnelEl.appendChild(all);
+    STATUSES.forEach(function(s){
+      var n=jobs.filter(function(j){return (j.status||'new')===s[0]}).length;
+      var b=el('button','stage');b.setAttribute('aria-pressed',filter===s[0]);b.appendChild(el('b',null,String(n)));b.appendChild(el('span',null,s[1]));
+      b.onclick=function(){filter=filter===s[0]?null:s[0];render()};funnelEl.appendChild(b);
+    });
+  }
+  function listBlock(title,items){var b=el('div','box');b.appendChild(el('h4',null,title));var u=el('ul','clean');(items||[]).forEach(function(i){u.appendChild(el('li',null,i))});b.appendChild(u);return b}
+
+  function renderJob(j){
+    var card=el('article','job');
+    var head=el('button','head');head.setAttribute('aria-expanded',!!open[j.id]);
+    var f=el('div','fit '+fitCls(sc(j)),sc(j)?String(sc(j)):'–');f.setAttribute('aria-label','ציון התאמה '+sc(j)+' מתוך 100');
+    var t=el('div','title');t.appendChild(el('b',null,(j.role||'')+' · '+(j.company||'')));
+    t.appendChild(el('span',null,[j.verdict,j.location,j.addedAt?('נוסף '+new Date(j.addedAt).toLocaleDateString('he-IL')):''].filter(Boolean).join(' · ')));
+    var st=j.status||'new', p=el('span','pill s-'+st,SL[st]||st);
+    head.appendChild(f);head.appendChild(t);head.appendChild(p);
+    head.onclick=function(){open[j.id]=!open[j.id];render()};
+    card.appendChild(head);
+    if(!open[j.id])return card;
+
+    var body=el('div','body');
+    var top=el('div','grid2');
+    var cb=el('div','box');cb.appendChild(el('h4',null,'החברה'));cb.appendChild(el('p',null,j.companyBrief||''));
+    if(j.url){var a=el('a',null,'למודעה המקורית');a.href=j.url;a.target='_blank';a.rel='noopener';cb.appendChild(a)}
+    if(j.source)cb.appendChild(el('p','note','מקור: '+j.source));
+    top.appendChild(cb);
+    var rb=el('div','box');rb.appendChild(el('h4',null,'התפקיד במשפט'));rb.appendChild(el('p',null,j.roleSummary||''));top.appendChild(rb);
+    body.appendChild(top);
+    if(j.score){var s=j.score,sb=el('div','box');sb.appendChild(el('h4',null,'הציון: '+s.total+' מתוך 100'+(s.conf?' · ביטחון '+s.conf:'')));if(s.verdict)sb.appendChild(el('p',null,s.verdict));
+      (s.parts||[]).forEach(function(x){sb.appendChild(el('p','note',x[0]+': '+x[1]+'/'+x[2]))});if(s.flags&&s.flags.length)sb.appendChild(el('p','note','לברר: '+s.flags.join(' · ')));body.appendChild(sb);
+      var g3=el('div','grid2');g3.appendChild(listBlock('בעד',s.pros));g3.appendChild(listBlock('נגד',s.cons));if(s.raise&&s.raise.length)g3.appendChild(listBlock('מה יעלה את הציון',s.raise));body.appendChild(g3)}
+    var two=el('div','grid2');two.appendChild(listBlock('למה מתאים',j.whyFit));two.appendChild(listBlock('פערים ואיך לסגור',j.gaps));body.appendChild(two);
+
+    if(j.requirements&&j.requirements.length){
+      var box=el('div','box');box.appendChild(el('h4',null,'דרישות התפקיד מול מה שיש לך'));
+      var w=el('div','tablewrap'),tb=el('table');
+      tb.innerHTML='<thead><tr><th>דרישה</th><th>סוג</th><th>אצלך</th><th>הוכחה / מה להגיד</th></tr></thead>';
+      var tbody=el('tbody');
+      j.requirements.forEach(function(r){var tr=el('tr');tr.appendChild(el('td',null,r.req));
+        tr.appendChild(el('td',r.type==='must'?'t-must':'t-nice',r.type==='must'?'חובה':'יתרון'));
+        var td=el('td');td.appendChild(el('span','m m-'+r.match,MATCH[r.match]||r.match));tr.appendChild(td);
+        tr.appendChild(el('td',null,r.evidence||''));tbody.appendChild(tr)});
+      tb.appendChild(tbody);w.appendChild(tb);box.appendChild(w);body.appendChild(box);
+    }
+    if(j.prep&&j.prep.length)body.appendChild(listBlock('הכנה לפני הגשה / ראיון',j.prep));
+
+    var c=el('div','controls');
+    var l1=el('label',null,'סטטוס');var sel=el('select');sel.id='st-'+j.id;
+    STATUSES.forEach(function(s){var o=el('option',null,s[1]);o.value=s[0];if(s[0]===st)o.selected=true;sel.appendChild(o)});l1.appendChild(sel);
+    var l2=el('label',null,'הצעד הבא');var nx=el('input');nx.id='nx-'+j.id;nx.value=j.nextStep||'';l2.appendChild(nx);
+    c.appendChild(l1);c.appendChild(l2);
+    var l3=el('label',null,'הערות שלך (למה הגשתי / למה עוד לא)');l3.style.flex='1 1 100%';var ta=el('textarea');ta.id='nt-'+j.id;ta.value=j.myNotes||'';l3.appendChild(ta);c.appendChild(l3);
+    var save=el('button','btn','שמור');var ok=el('span','saved','');
+    save.disabled=!canWrite||!db;
+    save.onclick=async function(){save.disabled=true;ok.textContent='';
+      try{await db.doc('jobs/'+j.id).update({status:sel.value,nextStep:nx.value,myNotes:ta.value,updatedAt:new Date().toISOString()});ok.textContent='נשמר'}
+      catch(e){ok.textContent=e&&e.code==='invalid_argument'?'אין הרשאת עריכה':'השמירה נכשלה, נסה שוב';if(e&&e.code==='invalid_argument')canWrite=false}
+      save.disabled=!canWrite};
+    c.appendChild(save);c.appendChild(ok);
+    body.appendChild(c);
+    card.appendChild(body);return card;
+  }
+
+  function render(){
+    renderFunnel();listEl.textContent='';
+    var shown=jobs.filter(function(j){return filter===null||(j.status||'new')===filter}).sort(function(a,b){return sc(b)-sc(a)});
+    if(!jobs.length){listEl.appendChild(el('div','empty','עוד אין משרות. שלח קישור למשרה בשרשור בפרויקט, והיא תופיע כאן עם ציון ופירוק דרישות.'));return}
+    if(!shown.length){listEl.appendChild(el('div','empty','אין משרות בסטטוס הזה.'));return}
+    shown.forEach(function(j){listEl.appendChild(renderJob(j))});
+  }
+
+  renderFunnel();
+  db=await (window.claude&&window.claude.use?window.claude.use('db'):null);
+  if(!db){listEl.textContent='';listEl.appendChild(el('div','empty','המשרות נטענות רק כשהעמוד פתוח ב-claude.ai כשאתה מחובר.'));return}
+  var user=await window.claude.use('user');
+  if(user){try{var w=await user.can('data.write');if(w===false)canWrite=false}catch(e){}}
+  db.collection('jobs').onSnapshot(function(snap){
+    jobs=snap.docs.filter(function(d){return d.exists}).map(function(d){var o=Object.assign({},d.data());o.id=d.id;return o});
+    render();
+  },function(){listEl.textContent='';listEl.appendChild(el('div','empty','לא הצלחתי לטעון את המשרות. רענן את העמוד.'))});
+})();
+</script>
+
+</body></html>
