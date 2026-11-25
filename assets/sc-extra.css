@@ -218,3 +218,20 @@ html[data-theme="landing"] .nd-feature--navy .nd-btn--secondary { color: var(--i
 @media (prefers-reduced-motion: reduce) { .sj, .sj-ok, .sj-f b, .sj-cur, .sj-track i { transition: none; } .sj-c { animation: none; } }
 html.no-motion .sj-c { animation: none; }
 html[data-theme="landing"] { scroll-padding-top: 96px; }
+
+/* Funnel views: tabs + pinball */
+.sc-fview { display: inline-flex; gap: 4px; padding: 4px; margin-block-end: 16px; border-radius: 999px; background: rgba(255,255,255,.55); border: 1px solid rgba(45,53,76,.08); }
+.sc-fview button { min-block-size: 40px; padding-inline: 18px; border: 0; border-radius: 999px; background: transparent; color: var(--ink-muted); font: 500 15px/1 var(--font-sans); cursor: pointer; transition: background .2s, color .2s; }
+.sc-fview button[aria-selected="true"] { background: var(--ink); color: #fff; }
+.sc-fview button:focus-visible { outline: 3px solid #1F6FC5; outline-offset: 2px; }
+.sc-funnel { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 2fr); gap: 24px; align-items: center; border-radius: 24px; background: rgba(255,255,255,.4); border: 1px solid rgba(45,53,76,.08); padding: 22px; }
+.sc-funnel[hidden], .sc-journey[hidden] { display: none; }
+.sc-funnel__txt ol { list-style: none; margin: 0 0 8px; padding: 0; display: grid; gap: 16px; counter-reset: f; }
+.sc-funnel__txt li { counter-increment: f; display: grid; gap: 2px; padding-inline-start: 36px; position: relative; }
+.sc-funnel__txt li::before { content: counter(f); position: absolute; inset-inline-start: 0; top: 0; inline-size: 26px; block-size: 26px; border-radius: 50%; background: #fff; display: grid; place-items: center; font: 600 13px/1 var(--font-sans); color: var(--ink); border: 1px solid rgba(45,53,76,.12); }
+.sc-funnel__txt b { font: 600 17px/24px var(--font-sans); color: var(--ink); }
+.sc-funnel__txt span { font-size: 15px; line-height: 22px; color: var(--ink-muted); }
+.sc-funnel .sv-go { display: inline-flex; align-items: center; gap: 8px; min-block-size: 44px; color: var(--ink); font-weight: 600; text-decoration: none; border-block-end: 2px solid var(--c); }
+.sc-pin { display: block; inline-size: 100%; block-size: auto; border-radius: 18px; background: rgba(255,255,255,.35); }
+.sc-sr { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (max-width: 767px) { .sc-funnel { grid-template-columns: minmax(0,1fr); padding: 14px; } }
