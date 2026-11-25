@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<meta name="description" content="נמרוד וסאל: שיווק ביצועים ודאטה. 4 כלים אינטראקטיביים שבניתי עם AI.">
+<meta name="description" content="נמרוד וסאל: שיווק ביצועים, דאטה ותפעול עסקי. 4 כלים שבניתי עם Claude, כולל Case study של מערכת סוכנים.">
 <meta name="theme-color" content="#FCFAFF">
-<title>נמרוד וסאל · Performance Marketing &amp; Data</title>
+<title>נמרוד וסאל · Performance Marketing, Data &amp; Business Operations</title>
 <style>
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@500;700&family=Unbounded:wght@500;600;700&display=swap");
 
@@ -894,78 +894,118 @@ body { margin: 0; padding: var(--space-5); }
   @media (max-width: 767px) { .sc-how ol { grid-template-columns: 1fr; gap: var(--space-4); } .sc-final { padding: var(--space-6); } .sc-story div { grid-template-columns: 72px 1fr; } }
   .sc-final .sc-final__btn--ghost { background: transparent; color: var(--on-accent); border: 1px solid rgba(252,250,255,.4); }
 </style>
+<style>
+  .nd-landing::before { display: none !important; }
+  .nd-landing { overflow-x: clip; }
+  .nowrap { white-space: nowrap; }
+  .sc-top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--canvas) 88%, transparent); backdrop-filter: saturate(1.4) blur(10px); -webkit-backdrop-filter: saturate(1.4) blur(10px); border-block-end: 1px solid var(--border); }
+  .sc-top__in { max-inline-size: 1080px; margin-inline: auto; padding: 8px max(16px, env(safe-area-inset-right, 0px)) 8px max(16px, env(safe-area-inset-left, 0px)); display: flex; align-items: center; gap: var(--space-2); }
+  .sc-top__name { font: 600 15px/20px var(--font-sans); color: var(--ink); text-decoration: none; margin-inline-end: auto; min-height: 44px; display: inline-flex; align-items: center; }
+  .sc-top .nd-btn { height: 40px; border-radius: var(--radius-full); padding-inline: var(--space-4); }
+  .sc-hero { position: relative; isolation: isolate; }
+  .sc-hero::after { content: ""; position: absolute; inset: 0 -100vw; z-index: -2; background: var(--canvas); }
+  .ff-canvas { position: absolute; inset-block: 0; inset-inline: calc(50% - 50vw); z-index: -1; pointer-events: none; }
+  .sc-hero h1 { font-size: clamp(40px, 7vw, 72px); max-inline-size: 15ch; }
+  .sc-section { font-size: clamp(30px, 4.6vw, 44px); line-height: 1.12; margin-block-start: var(--space-10, 40px); }
+  .sc-lead { margin: calc(var(--space-2) * -1) 0 0; font-size: 18px; line-height: 28px; color: var(--ink-muted); max-inline-size: 60ch; }
+  .sc-shot { display: block; overflow: hidden; border-radius: var(--radius-lg); background: var(--surface-sunken); }
+  .sc-shot img { display: block; inline-size: 100%; block-size: auto; transition: transform 400ms var(--ease-out, cubic-bezier(.22,1,.36,1)); }
+  .nd-feature, .sc-card { transition: transform 250ms cubic-bezier(.22,1,.36,1), box-shadow 250ms cubic-bezier(.22,1,.36,1); }
+  @media (hover: hover) {
+    .nd-feature:hover, .sc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg, 0 18px 40px rgba(45,53,76,.14)); }
+    .sc-shot:hover img, .sc-card:hover .sc-shot img, .nd-feature:hover .sc-shot img { transform: scale(1.035); }
+    .sc-go:hover .sc-arrow { transform: translateX(-4px); }
+  }
+  .sc-arrow { display: inline-block; transition: transform 150ms ease-out; }
+  .nd-feature .sc-shot { margin: 0; }
+  .sc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); }
+  .sc-card { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-xl, 20px); background: var(--surface); }
+  .sc-card h3 { margin: var(--space-1) 0 0; font: 700 22px/28px var(--font-sans); letter-spacing: -0.02em; color: var(--ink); text-wrap: balance; }
+  .sc-card p { margin: 0; font-size: 15px; line-height: 24px; color: var(--ink-muted); flex: 1; }
+  .sc-card .sc-meta { font-size: 13px; color: var(--ink-muted); }
+  .sc-go { align-self: flex-start; }
+  .sc-proof { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); margin: 0; padding: 0; list-style: none; }
+  .sc-proof li { padding-block-start: var(--space-4); border-block-start: 2px solid var(--ink); font-size: 16px; line-height: 25px; color: var(--ink-muted); }
+  .sc-proof b { display: block; margin-block-end: var(--space-1); font-size: 18px; color: var(--ink); }
+  @media (max-width: 899px) { .sc-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 767px) { .sc-grid, .sc-proof { grid-template-columns: 1fr; } .sc-top__name { font-size: 14px; } .sc-top .nd-btn { padding-inline: var(--space-3); } }
+  @media (prefers-reduced-motion: reduce) { .nd-feature, .sc-card, .sc-shot img, .sc-arrow { transition: none; } }
+</style>
 <div class="nd-landing">
-  <main class="sc-wrap">
-    <header class="sc-hero">
-      <span class="sc-name">נמרוד וסאל</span>
-      <h1>איש פרפורמנס שבונה לעצמו את הכלים</h1>
-      <p>חמש שנים עבדתי ב־Ryze Beyond, התחלתי ב־PPC, ניהלתי צוות ובסוף הייתי אחראי על ה־P&amp;L של אתרים חדשים. בחודשים האחרונים אני בונה עם Claude כלים לבעיות שפגשתי בעבודה ובבית. הנה ארבעה מהם. כולם עובדים, עם נתונים מומצאים.</p>
+  <nav class="sc-top" aria-label="קישורים מהירים">
+    <div class="sc-top__in">
+      <a class="sc-top__name" href="#top">נמרוד וסאל</a>
+      <a class="nd-btn nd-btn--primary" href="assets/Nimrod_Vassal_CV.pdf" download>קורות חיים</a>
+      <a class="nd-btn nd-btn--secondary" href="https://linkedin.com/in/nimrod-vassal" target="_blank" rel="noopener">לינקדאין</a>
+    </div>
+  </nav>
+  <main class="sc-wrap" id="top">
+    <header class="sc-hero" data-funnel-field>
+      <h1 class="fx-pen">שיווק ביצועים, דאטה ותפעול עסקי. ואני בונה לעצמי את <span class="fx-mark">הכלים</span></h1>
+      <p>יותר מחמש שנים ב־Ryze Beyond: התחלתי כ־Marketing Analyst עם תקציב של <span dir="ltr">$1.5M+</span> בחודש, הובלתי צוות אנליסטים, ובתור Growth Manager הייתי אחראי על הכנסות ורווחיות של אתרים, השקתי ורטיקלים חדשים והגדלתי אתרים קיימים <span class="nowrap">פי 2–4</span>. היום אני בונה עם AI כלים שעובדים באמת. הנה ארבעה מהם, עם נתונים בדויים.</p>
       <div class="sc-cta">
-        <a class="nd-btn nd-btn--primary" href="https://linkedin.com/in/nimrod-vassal" target="_blank" rel="noopener">לפרופיל בלינקדאין</a>
+        <a class="nd-btn nd-btn--primary" href="#tools">לכלים שבניתי</a>
         <a class="nd-btn nd-btn--secondary" href="tools/nimrod-vassal/">עליי, באנגלית</a>
       </div>
       <dl class="sc-facts">
-        <div><dt>Ryze Beyond</dt><dd>PPC, ראש צוות, P&amp;L</dd></div>
+        <div><dt>Ryze Beyond, <span class="nd-num">2020–2026</span></dt><dd>Growth Manager · Analysts Team Lead · Marketing Analyst</dd></div>
+        <div><dt>Growth &amp; Analytics Projects</dt><dd>עצמאי, 2026</dd></div>
         <div><dt>Albert AI</dt><dd>Optimization Analyst</dd></div>
-        <div><dt>B.Sc.</dt><dd>הנדסת תעשייה וניהול, אוניברסיטת בן־גוריון</dd></div>
+        <div><dt>B.Sc.</dt><dd>הנדסת תעשייה וניהול (מערכות נבונות), בן־גוריון</dd></div>
       </dl>
     </header>
 
-    <h2 class="sc-section">ארבעה כלים שבניתי</h2>
+
+    <div class="fx-ticker" aria-label="מה יש באתר"><div class="fx-ticker__track"><span><b>96</b> משרות עברו ב־Interview OS</span><span><b>3</b> סוכנים מתוזמנים</span><span>Skills</span><span>MCP · Gmail · Calendar · Drive</span><span>מודל ציון v3</span><span><b dir="ltr">$1.5M+</b> תקציב חודשי בעבר</span><span>Google Ads · Bing</span><span>A/B tests</span><span>דשבורדים בעברית ובטלפון</span></div></div>
+
+    <h2 class="sc-section" id="tools">ארבעה כלים שבניתי</h2>
 
     <article class="nd-feature nd-feature--navy">
       <div class="nd-feature__body">
-        <span class="nd-tag nd-tag--lime nd-tag--pill">Paid · BI</span>
-        <h2 class="nd-feature__title">Lead Quality Dashboard</h2>
-        <p class="nd-feature__text">ב־Ryze ראיתי שוב ושוב קמפיינים שנראים מצוין לפי CPL, ואז מתברר שהשותף דוחה חצי מהלידים. בניתי דשבורד שמסתכל על מה שבאמת משנה: כמה כסף מאושר נכנס על כל קליק. הוא גם מתריע כשהאיכות אצל שותף מתחילה לרדת.</p>
-        <div class="nd-feature__meta"><span>באנגלית</span><span>נתונים סינתטיים</span></div>
-        <div class="nd-feature__actions"><a class="nd-btn nd-btn--primary" href="tools/lead-quality/">לדשבורד</a></div>
+        <span class="nd-tag nd-tag--lime nd-tag--pill">Case study · סוכנים</span>
+        <h3 class="nd-feature__title">Interview OS: חיפוש עבודה עם סוכנים</h3>
+        <p class="nd-feature__text">כשחזרתי לחפש עבודה היו לי עשרות משרות פתוחות בטאבים. בניתי מערכת שסוכנים מתוזמנים מזינים בה משרות, כל משרה מקבלת ציון התאמה, ואני מחליט מה מגישים. 96 משרות עברו בה ב־7 שבועות.</p>
+        <div class="nd-feature__actions"><a class="nd-btn nd-btn--primary sc-go" href="tools/interview-os/">לקריאת ה־Case study <span class="sc-arrow" aria-hidden="true">←</span></a><a class="nd-btn nd-btn--secondary" href="tools/job-tracker/">לדמו</a></div>
       </div>
-      <div class="nd-feature__visual"><img src="assets/lead-quality.webp" alt="צילום מסך של דשבורד איכות הלידים" width="960" height="600"></div>
+      <a class="nd-feature__visual sc-shot fx-pan" data-peek="מעקב משרות (דמו)" href="tools/job-tracker/" aria-label="הצצה לדמו של מעקב המשרות"><img src="assets/job-tracker.webp" alt="צילום מסך של מעקב המשרות" width="960" height="600"></a>
     </article>
 
-    <article class="nd-feature nd-feature--flip">
-      <div class="nd-feature__body">
-        <span class="nd-tag nd-tag--mint nd-tag--pill">דף נחיתה</span>
-        <h2 class="nd-feature__title">דף נחיתה לעסק של שיר</h2>
-        <p class="nd-feature__text">שיר, אשתי, מורה לחינוך מיוחד, רצתה להתחיל ללמד באופן פרטי בהוד השרון. בנינו יחד דף אחד שמסביר להורים מה היא עושה, ומכל מקום בו אפשר לשלוח לה וואטסאפ.</p>
-        <div class="nd-feature__actions"><a class="nd-btn nd-btn--primary" href="tools/shir-landing/">לדף הנחיתה</a></div>
-      </div>
-      <div class="nd-feature__visual"><img src="assets/shir-landing.webp" alt="צילום מסך של דף הנחיתה" width="960" height="600" loading="lazy"></div>
-    </article>
+    <div class="sc-grid">
+      <article class="sc-card">
+        <a class="sc-shot fx-pan" data-peek="Lead Quality Dashboard" href="tools/lead-quality/" aria-label="לדשבורד איכות הלידים"><img src="assets/lead-quality.webp" alt="צילום מסך של דשבורד איכות הלידים" width="960" height="600" loading="lazy"></a>
+        <span class="sc-meta">Paid · BI · באנגלית</span>
+        <h3>Lead Quality Dashboard</h3>
+        <p>קמפיין שנראה מצוין לפי CPL, ואז השותף דוחה חצי מהלידים. הדשבורד מודד כמה כסף מאושר נכנס על כל קליק, ומתריע כשהאיכות אצל שותף יורדת.</p>
+        <a class="nd-btn nd-btn--secondary sc-go" href="tools/lead-quality/">לדשבורד <span class="sc-arrow" aria-hidden="true">←</span></a>
+      </article>
+      <article class="sc-card">
+        <a class="sc-shot fx-pan" data-peek="דף נחיתה לעסק של שיר" href="tools/shir-landing/" aria-label="לדף הנחיתה"><img src="assets/shir-landing.webp" alt="צילום מסך של דף הנחיתה" width="960" height="600" loading="lazy"></a>
+        <span class="sc-meta">דף נחיתה</span>
+        <h3>דף נחיתה לעסק של שיר</h3>
+        <p>שיר, אשתי, מורה לחינוך מיוחד, התחילה ללמד באופן פרטי. דף אחד שמסביר להורים מה היא עושה, ומכל מקום בו אפשר לשלוח לה וואטסאפ.</p>
+        <a class="nd-btn nd-btn--secondary sc-go" href="tools/shir-landing/">לדף הנחיתה <span class="sc-arrow" aria-hidden="true">←</span></a>
+      </article>
+      <article class="sc-card">
+        <a class="sc-shot fx-pan" data-peek="לוח המדידה של הדף" href="tools/shir-board/" aria-label="ללוח המדידה"><img src="assets/shir-board.webp" alt="צילום מסך של לוח המדידה" width="960" height="600" loading="lazy"></a>
+        <span class="sc-meta">Funnel · נתוני דוגמה</span>
+        <h3>לוח המדידה של הדף</h3>
+        <p>מאיפה מגיעים ההורים ובאיזה שלב הם נעלמים: מעקב על כל הדרך, מהכניסה לדף ועד תלמיד שהתחיל ללמוד.</p>
+        <a class="nd-btn nd-btn--secondary sc-go" href="tools/shir-board/">ללוח המדידה <span class="sc-arrow" aria-hidden="true">←</span></a>
+      </article>
+    </div>
 
-    <article class="nd-feature nd-feature--navy">
-      <div class="nd-feature__body">
-        <h2 class="nd-feature__title">לוח המדידה של דף הנחיתה</h2>
-        <p class="nd-feature__text">אחרי שהדף עלה רציתי לדעת מאיפה מגיעים ההורים ובאיזה שלב הם נעלמים. אז בניתי לוח שעוקב אחרי כל הדרך, מהכניסה לדף ועד תלמיד שהתחיל ללמוד.</p>
-        <div class="nd-feature__meta"><span>דשבורד</span><span>נתוני דוגמה</span></div>
-        <div class="nd-feature__actions"><a class="nd-btn nd-btn--primary" href="tools/shir-board/">ללוח המדידה</a></div>
-      </div>
-      <div class="nd-feature__visual"><img src="assets/shir-board.webp" alt="צילום מסך של לוח המדידה" width="960" height="600" loading="lazy"></div>
-    </article>
-
-    <article class="nd-feature nd-feature--flip">
-      <div class="nd-feature__body">
-        <span class="nd-tag nd-tag--mint nd-tag--pill">Case study</span>
-        <h2 class="nd-feature__title">Interview OS: חיפוש עבודה עם סוכנים</h2>
-        <p class="nd-feature__text">כשחזרתי לחפש עבודה היו לי עשרות משרות פתוחות בטאבים. בניתי מערכת שסוכנים מתוזמנים מזינים בה משרות, כל משרה מקבלת ציון התאמה, ואני מחליט מה מגישים. 96 משרות עברו בה ב-7 שבועות.</p>
-        <div class="nd-feature__actions"><a class="nd-btn nd-btn--primary" href="tools/interview-os/">לקריאת ה-Case study</a><a class="nd-btn nd-btn--secondary" href="tools/job-tracker/">לדמו</a></div>
-      </div>
-      <div class="nd-feature__visual"><img src="assets/job-tracker.webp" alt="צילום מסך של מעקב המשרות" width="960" height="600" loading="lazy"></div>
-    </article>
-
-    <section class="sc-how" aria-labelledby="how">
-      <h2 id="how" class="sc-section">איך אני עובד</h2>
-      <ol>
-        <li>קודם אני מחליט מה השאלה, ואיזה מספר עונה עליה.</li>
-        <li>בונה עם Claude, על מערכת עיצוב שהכנתי לעצמי, בעברית ומותאם לטלפון.</li>
-        <li>בודק בצילומי מסך ועם נתונים מבולגנים, ומתקן עד שזה עובד.</li>
-      </ol>
+    <section aria-labelledby="how">
+      <h2 id="how" class="sc-section">מה עומד מאחורי הכלים</h2>
+      <ul class="sc-proof fx-reveal">
+        <li><b>Skill עם הפרופיל שלי</b>מודל הציון וכללי קורות החיים יושבים במקום אחד, כך שכל שיחה עם Claude מתחילה כשהיא כבר מכירה אותי.</li>
+        <li><b>3 סוכנים שרצים לבד</b>סריקת מייל כל בוקר, Job Radar פעמיים בשבוע והכנה לראיון של מחר בכל ערב, דרך Gmail ו־Calendar.</li>
+        <li><b>מערכת עיצוב אחת</b>כל הכלים בנויים על אותם צבעים ורכיבים, בעברית ומותאמים לטלפון, ונבדקים בצילומי מסך לפני שהם עולים.</li>
+      </ul>
     </section>
 
     <section class="nd-highlight sc-final">
       <div>
-        <h2 class="nd-highlight__title">מחפשים מישהו לפרפורמנס ודאטה, או שיש לכם תהליך שהייתם רוצים כלי בשבילו?</h2>
+        <h2 class="nd-highlight__title">מחפשים מישהו לשיווק ביצועים, דאטה או תפעול עסקי?</h2>
         <p>אשמח לדבר.</p>
       </div>
       <div class="sc-cta"><a class="nd-btn sc-final__btn" href="https://linkedin.com/in/nimrod-vassal" target="_blank" rel="noopener">לשלוח לי הודעה בלינקדאין</a><a class="nd-btn sc-final__btn sc-final__btn--ghost" href="mailto:nimrodv10@gmail.com">nimrodv10@gmail.com</a></div>
@@ -973,10 +1013,14 @@ body { margin: 0; padding: var(--space-5); }
 
     <footer class="sc-foot">
       <span>נבנה עם Claude. החברות והנתונים בכלים בדויים.</span>
-      <a href="tools/nimrod-vassal/#contact">ליצירת קשר</a>
+      <a href="assets/Nimrod_Vassal_CV.pdf" download>קורות חיים (PDF)</a>
     </footer>
   </main>
 </div>
+<link rel="stylesheet" href="assets/sc-fx.css">
+<script src="assets/funnel-field.js" defer></script>
+<script src="assets/sc-fx.js" defer></script>
+
 
 <script>
 /* Theme switcher: auto / light / dark / contrast. The page's family (home, pro,
