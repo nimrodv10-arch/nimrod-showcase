@@ -116,3 +116,32 @@
     f.addEventListener('submit', function (e) { e.preventDefault(); var s = text(); if (s) location.href = 'mailto:nimrodv10@gmail.com?subject=' + encodeURIComponent('פנייה מהאתר: ' + f.elements.topic.value) + '&body=' + encodeURIComponent(s); });
   }
 })();
+
+/* Hero depth: title and dashboard move at different speeds on scroll, slight tilt on pointer */
+(function () {
+  var hero = document.querySelector('.sc-stage'); if (!hero) return;
+  var card = hero.querySelector('.sc-3d');
+  var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function off() { return rm || document.documentElement.classList.contains('no-motion'); }
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(function () {
+      ticking = false;
+      var y = Math.min(window.scrollY, 700);
+      if (off()) { y = 0; }
+      hero.style.setProperty('--ty1', (y * 0.12) + 'px');
+      if (card) card.style.setProperty('--ty2', (y * -0.08) + 'px');
+    });
+  }, { passive: true });
+  if (card && window.matchMedia('(hover: hover)').matches) {
+    hero.addEventListener('pointermove', function (e) {
+      if (off()) return;
+      var r = hero.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5, yy = (e.clientY - r.top) / r.height - 0.5;
+      card.style.setProperty('--rx', (x * 8).toFixed(2) + 'deg');
+      card.style.setProperty('--ry', (-yy * 6).toFixed(2) + 'deg');
+    });
+    hero.addEventListener('pointerleave', function () { card.style.setProperty('--rx', '0deg'); card.style.setProperty('--ry', '0deg'); });
+  }
+})();
