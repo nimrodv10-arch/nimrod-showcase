@@ -81,3 +81,8 @@ html.no-motion .fx-type .ch, html.no-motion .fx-type .fx-dot { opacity: 1 !impor
 @media (max-width: 480px) { .sc-ico--gh { display: none; } .sc-fab { inline-size: 46px; block-size: 46px; } .sc-fab--a11y { inline-size: 40px; block-size: 40px; } body { padding-block-end: 64px; } }
 html[data-text="1"] .sc-a11y, html[data-text="1"] .sc-fabs { zoom: .893; }
 html[data-text="2"] .sc-a11y, html[data-text="2"] .sc-fabs { zoom: .8; }
+
+.sc-hero > canvas.sc-live { position: absolute; inset-block: 0; inset-inline: calc(50% - 50vw); inline-size: 100vw; block-size: 100%; z-index: -1; pointer-events: none; }
+
+.sc-i { display: block; inline-size: 26px; block-size: 26px; color: var(--c, var(--ink)); margin-block-end: 10px; }
+.sc-proof li .sc-i { margin-block-end: 8px; }
