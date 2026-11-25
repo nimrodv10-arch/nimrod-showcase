@@ -292,3 +292,16 @@ a.sc-way:hover { border-color: rgba(31,127,166,.4); }
 .sc-contact .sc-form__note { color: var(--ink-muted); }
 @media (max-width: 767px) { .sc-contact { padding: 18px; } .sc-contact__ways { grid-template-columns: minmax(0,1fr); } }
 @media (max-width: 767px) { .sc-grid { grid-template-columns: minmax(0,1fr) !important; } }
+
+/* Plain metadata lines instead of dotted pills */
+.sc-card .sc-meta { padding: 0 !important; background: none !important; border-radius: 0 !important; font-weight: 400 !important; font-size: 13px; color: var(--ink-muted) !important; }
+.sc-note { align-self: flex-start; font: 600 15px/20px var(--font-hand); color: #1A6A8B; border-block-end: 2px solid #A7D3E4; }
+
+/* Services: hand-drawn line illustrations */
+.sv-pan { display: grid; place-items: center; }
+.sv-ill { inline-size: 150px; block-size: auto; overflow: visible; }
+.sv-ill path, .sv-ill circle { fill: none; stroke: var(--ink); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.sv-ill .c { stroke: var(--c); }
+.sv-ill .d { fill: #D93A2B; stroke: none; }
+.sv-ill .d2 { stroke: #D93A2B; stroke-width: 3; }
+.sv-ill .i { fill: var(--ink); }
