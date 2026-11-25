@@ -928,12 +928,31 @@ body { margin: 0; padding: var(--space-5); }
     .cs-table th { white-space: normal; }
   }
 </style>
+<style>
+  .sc-top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--canvas) 88%, transparent); backdrop-filter: saturate(1.4) blur(10px); -webkit-backdrop-filter: saturate(1.4) blur(10px); border-block-end: 1px solid var(--border); }
+  .sc-top__in { max-inline-size: 1080px; margin-inline: auto; padding: 8px max(16px, env(safe-area-inset-right, 0px)) 8px max(16px, env(safe-area-inset-left, 0px)); display: flex; align-items: center; gap: var(--space-2); }
+  .sc-top__name { font: 600 15px/20px var(--font-sans); color: var(--ink); text-decoration: none; margin-inline-end: auto; min-height: 44px; display: inline-flex; align-items: center; }
+  .sc-top .nd-btn { height: 40px; border-radius: var(--radius-full); padding-inline: var(--space-4); }
+  .nd-landing::before { display: none !important; }
+  .sc-hero h1 { font-size: clamp(36px, 6vw, 64px); max-inline-size: 18ch; }
+  .sc-section { font-size: clamp(28px, 4.2vw, 40px); line-height: 1.15; margin-block-start: var(--space-8); }
+  .cs-kpis div, .cs-dec article { transition: transform 250ms cubic-bezier(.22,1,.36,1), box-shadow 250ms cubic-bezier(.22,1,.36,1); }
+  @media (hover: hover) { .cs-kpis div:hover, .cs-dec article:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(45,53,76,.12); } .cs-table tr:hover td, .cs-table tr:hover th { background: var(--surface-sunken); } }
+  @media (max-width: 767px) { .sc-top__name { font-size: 14px; } .sc-top .nd-btn { padding-inline: var(--space-3); } }
+</style>
+<link rel="stylesheet" href="../../assets/sc-fx.css">
 <div class="nd-landing">
+  <nav class="sc-top" aria-label="קישורים מהירים">
+    <div class="sc-top__in">
+      <a class="sc-top__name" href="../../">נמרוד וסאל</a>
+      <a class="nd-btn nd-btn--primary" href="../../assets/Nimrod_Vassal_CV.pdf" download>קורות חיים</a>
+      <a class="nd-btn nd-btn--secondary" href="https://linkedin.com/in/nimrod-vassal" target="_blank" rel="noopener">לינקדאין</a>
+    </div>
+  </nav>
   <main class="sc-wrap">
     <header class="sc-hero">
-      <a class="cs-back" href="../../">חזרה לכל הכלים</a>
-      <span class="nd-tag nd-tag--lime nd-tag--pill">Case study · Claude</span>
-      <h1>Interview OS: מערכת חיפוש עבודה שעובדת גם כשאני לא מול המחשב</h1>
+            <span class="nd-tag nd-tag--lime nd-tag--pill">Case study · Claude</span>
+      <h1 class="fx-pen">Interview OS: מערכת חיפוש עבודה שעובדת גם כשאני <span class="fx-mark">לא</span> מול המחשב</h1>
       <p>בניתי עם Claude מערכת שסורקת משרות בשבילי, נותנת לכל אחת ציון התאמה ומכינה אותי לראיון. ההחלטות נשארות אצלי. כאן אני מסביר איך היא בנויה, אילו החלטות קיבלתי בדרך ומה למדתי.</p>
       <dl class="sc-facts">
         <div><dt>תקופה</dt><dd>אוקטובר עד נובמבר 2026</dd></div>
@@ -943,17 +962,17 @@ body { margin: 0; padding: var(--space-5); }
     </header>
 
     <dl class="cs-kpis" aria-label="מספרים מהשימוש שלי">
-      <div><dt class="nd-num">96</dt><dd>משרות נכנסו למערכת ב-7 שבועות</dd></div>
-      <div><dt class="nd-num">66</dt><dd>סוננו החוצה, כל אחת עם סיבה</dd></div>
-      <div><dt class="nd-num">3</dt><dd>סוכנים מתוזמנים רצים ברקע</dd></div>
-      <div><dt class="nd-num">1</dt><dd>מקום אחד לכל המשרות, במקום אקסל וטאבים</dd></div>
+      <div><dt class="nd-num" data-count="96">96</dt><dd>משרות נכנסו למערכת ב-7 שבועות</dd></div>
+      <div><dt class="nd-num" data-count="66">66</dt><dd>סוננו החוצה, כל אחת עם סיבה</dd></div>
+      <div><dt class="nd-num" data-count="3">3</dt><dd>סוכנים מתוזמנים רצים ברקע</dd></div>
+      <div><dt class="nd-num" data-count="1">1</dt><dd>מקום אחד לכל המשרות, במקום אקסל וטאבים</dd></div>
     </dl>
 
     <h2 class="sc-section">הבעיה: יותר זמן על ניהול החיפוש מאשר על החיפוש עצמו</h2>
     <p class="cs-p">משרות הגיעו מהתראות לינקדאין במייל, מאתרי קריירה ומחברים. הן חיו בטאבים, באקסל ובפתקים. כל משרה דרשה לקרוא מודעה, להחליט אם היא מתאימה, לבדוק אם אני מכיר מישהו בחברה, ולפני ראיון להתכונן מאפס. חסר לי מקום אחד שאומר מה עושים היום.</p>
 
     <h2 class="sc-section">איך זה עובד</h2>
-    <ol class="cs-flow">
+    <ol class="cs-flow fx-reveal">
       <li><b>מקורות</b><span>התראות לינקדאין ב-Gmail, אתרי קריירה של 20 חברות יעד, הפניות מהרשת</span></li>
       <li><b>סוכנים מתוזמנים</b><span>Job Radar פעמיים בשבוע, סריקת מייל כל בוקר, הכנה לראיון של מחר בכל ערב</span></li>
       <li><b>מודל ציון</b><span>Skill שמכיר את הפרופיל שלי ונותן לכל משרה ציון 1–100 עם נימוק</span></li>
@@ -972,7 +991,7 @@ body { margin: 0; padding: var(--space-5); }
     </table>
 
     <h2 class="sc-section">ארבע החלטות שעיצבו את המערכת</h2>
-    <div class="cs-dec">
+    <div class="cs-dec fx-reveal">
       <article><h3>הסוכן מציע, אני מחליט</h3><p>Job Radar רק מוסיף שורות חדשות ולעולם לא עורך משרה קיימת.</p><p class="cs-why">ניסיתי ארכוב אוטומטי וביטלתי אותו. משרה שמתיישנת מקבלת סימון ולא נעלמת.</p></article>
       <article><h3>מודל ציון שאפשר להסביר</h3><p>ארבעה רכיבים: דרישות 25, התאמה 25, סיכוי להתקבל 30, חברה 20. פער טכני כמו SQL מקבל חצי נקודות ולא אפס.</p><p class="cs-why">ציון שאני לא יכול לנמק במשפט לא עוזר להחליט. זו כבר הגרסה השלישית של המודל.</p></article>
       <article><h3>מקור אמת אחד</h3><p>התחלתי עם טבלת גוגל, מעקב משרות נפרד ודפי הכנה. איחדתי הכול ל-Interview OS ופרשתי את הכלים הישנים.</p><p class="cs-why">שני מקומות לאותו מידע תמיד מתפצלים בסוף.</p></article>
@@ -994,11 +1013,11 @@ body { margin: 0; padding: var(--space-5); }
     </ul>
 
     <section class="cs-demo" aria-labelledby="demo">
-      <img src="../../assets/job-tracker.webp" alt="צילום מסך של הגרסה הראשונה של מעקב המשרות" width="960" height="600" loading="lazy">
+      <a class="sc-shot" data-peek="מעקב משרות (דמו)" href="../job-tracker/"><img src="../../assets/job-tracker.webp" alt="צילום מסך של הגרסה הראשונה של מעקב המשרות" width="960" height="600" loading="lazy"></a>
       <div class="nd-stack">
         <h2 id="demo" class="sc-section" style="margin:0">לנסות בעצמכם</h2>
         <p class="cs-p cs-muted">הגרסה הראשונה של המסך, עם חברות ונתונים בדויים. המערכת המלאה מחזיקה מידע אישי, ולכן היא לא פתוחה לציבור.</p>
-        <div class="sc-cta"><a class="nd-btn nd-btn--primary" href="../job-tracker/">לדמו</a></div>
+        <div class="sc-cta"><a class="nd-btn nd-btn--primary" href="../job-tracker/">לדמו</a><a class="nd-btn nd-btn--secondary" href="../../assets/Nimrod_Vassal_CV.pdf" download>קורות חיים (PDF)</a></div>
       </div>
     </section>
 
@@ -1051,5 +1070,6 @@ body { margin: 0; padding: var(--space-5); }
   window.NDTheme = { set: apply, get: function () { return root.getAttribute('data-theme-mode'); } };
 })();
 </script>
+<script src="../../assets/sc-fx.js" defer></script>
 </body>
 </html>
