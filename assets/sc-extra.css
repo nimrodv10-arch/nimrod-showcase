@@ -168,3 +168,26 @@ html.no-motion .sc-stage__title .fx-dot { animation: none !important; opacity: 1
 @media (prefers-reduced-motion: reduce) { .sc-marquee ul { animation: none; } .sc-3d { transition: none; } }
 html.no-motion .sc-marquee ul { animation: none; }
 html.no-motion .sc-3d { transition: none; }
+
+/* Services panels: icon only, no repeated screenshots */
+.sv-pan { block-size: 150px; }
+.sv-ico { top: 50%; left: 50%; right: auto; inset-inline-start: auto; transform: translate(-50%, -50%); inline-size: 68px; block-size: 68px; border-radius: 20px; }
+.sv-ico svg { inline-size: 34px; block-size: 34px; }
+
+/* Tool cards in the Laguna palette */
+.sc-card--blue { --sc-c: #1F7FA6; --sc-bg: #DCEFF5; --sc-ct: #1A6A8B; }
+.sc-card--pink { --sc-c: #2B8C8C; --sc-bg: #D9EFEE; --sc-ct: #1F6E6E; }
+.sc-card--purple { --sc-c: #5B6B78; --sc-bg: #E5E9EC; --sc-ct: #46535E; }
+.sc-card--green { --sc-c: #2E8A5E; --sc-bg: #DDF0E4; --sc-ct: #236B49; }
+html[data-theme="landing"] .nd-feature--navy { background: rgba(255,255,255,.78); border: 1px solid rgba(45,53,76,.08); box-shadow: 0 18px 40px rgba(31,48,64,.10); }
+html[data-theme="landing"] .nd-feature--navy .nd-feature__title { color: var(--ink); }
+html[data-theme="landing"] .nd-feature--navy .nd-feature__text { color: var(--ink-muted); }
+html[data-theme="landing"] .nd-feature--navy .nd-btn--primary { background: var(--ink); color: #fff; }
+html[data-theme="landing"] .nd-feature--navy .nd-btn--secondary { color: var(--ink); border-color: rgba(45,53,76,.25); }
+.sc-tag { background: #DDF0E4; color: #236B49; }
+
+/* Background facts as a centred chip row */
+.sc-facts.sc-facts--row { justify-content: center; gap: 10px; border: 0; padding-block: 8px 0; margin-block-start: 8px; }
+.sc-facts--row > div { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 8px; align-items: baseline; padding: 8px 16px; border-radius: 999px; background: rgba(255,255,255,.55); border: 1px solid rgba(45,53,76,.08); }
+.sc-facts--row dt, .sc-facts--row dd { font-size: 14px; line-height: 20px; }
+@media (max-width: 767px) { .sc-facts--row > div { border-radius: 16px; } }
