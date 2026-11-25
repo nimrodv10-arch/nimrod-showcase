@@ -88,3 +88,4 @@ html[data-text="2"] .sc-a11y, html[data-text="2"] .sc-fabs { zoom: .8; }
 .sc-proof li .sc-i { margin-block-end: 8px; }
 
 .sc-mark { inline-size: 32px; block-size: 32px; color: var(--ink); flex: none; }
+@media (min-width: 768px) { .sc-hero .sc-stack { order: -1; } }
