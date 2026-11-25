@@ -1,0 +1,16 @@
+{
+  "name": "nimrod-tools",
+  "owner": {
+    "name": "Nimrod Vassal"
+  },
+  "metadata": {
+    "description": "Claude tools built by Nimrod Vassal"
+  },
+  "plugins": [
+    {
+      "name": "job-search",
+      "source": "./claude/job-search-plugin",
+      "description": "Score job links against your profile, tailor your CV honestly, and prepare for interviews."
+    }
+  ]
+}

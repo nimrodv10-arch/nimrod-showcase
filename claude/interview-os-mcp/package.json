@@ -1,0 +1,15 @@
+{
+  "name": "interview-os-mcp",
+  "version": "0.1.0",
+  "description": "A small MCP server over an Interview OS pipeline file: list, score, add and move jobs from any MCP client.",
+  "type": "module",
+  "bin": { "interview-os-mcp": "server.js" },
+  "main": "server.js",
+  "scripts": { "start": "node server.js", "test": "node test.js" },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "zod": "3.25.76"
+  },
+  "engines": { "node": ">=18" },
+  "license": "MIT"
+}
