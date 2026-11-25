@@ -365,3 +365,20 @@ html.no-motion .sc-rot__c { animation: none; }
 .sc-grid--3 .sc-meta a { display: inline-flex; align-items: center; min-block-size: 44px; }
 .sc-who { font-size: 13px; }
 @media (max-width: 767px) { .sj-row { grid-template-columns: repeat(3, minmax(0,1fr)) !important; gap: 8px; } .sj:nth-child(2), .sj:nth-child(4) { display: none; } .sj:nth-child(5) { grid-column: auto !important; } .sj { padding: 10px 8px; min-block-size: 130px; } .sc-journey { padding: 14px 12px 30px; } }
+
+/* 25.11 tweaks */
+.sc-hero.sc-hero--e { column-gap: clamp(48px, 8vw, 110px) !important; }
+.sc-hero--e h1.sc-stage__title { font-size: clamp(52px, 6.6vw, 92px) !important; }
+.sc-stage__title .fx-dot { margin-inline-start: .02em !important; animation: fxDot 420ms cubic-bezier(.34,1.56,.64,1) forwards !important; animation-delay: calc(var(--n, 6) * 38ms + 320ms) !important; }
+.sc-rot__w { color: #0B5A78 !important; background: linear-gradient(transparent 58%, rgba(255,255,255,.9) 58%, rgba(255,255,255,.9) 92%, transparent 92%); padding-inline: 2px; }
+.sc-top__name { margin-inline-end: auto; }
+.sc-wa { gap: 8px; font-family: var(--font-hand) !important; letter-spacing: .02em; }
+.sc-wa svg { inline-size: 20px; block-size: 20px; color: #2E8A5E; flex: none; }
+.sc-cv { border: 0; padding: 0; border-radius: 16px; max-inline-size: min(760px, 94vw); max-block-size: 92vh; overflow: auto; background: #fff; box-shadow: 0 30px 80px rgba(31,48,64,.35); }
+.sc-cv::backdrop { background: rgba(31,40,56,.55); backdrop-filter: blur(3px); }
+.sc-cv img { display: block; inline-size: 100%; block-size: auto; }
+.sc-cv__x { position: sticky; top: 8px; float: left; margin: 8px; inline-size: 44px; block-size: 44px; border-radius: 50%; border: 0; background: var(--ink); color: #fff; font: 600 24px/1 var(--font-sans); cursor: pointer; z-index: 1; }
+.sc-cv__x:focus-visible { outline: 3px solid #1F6FC5; outline-offset: 2px; }
+button.nd-btn { cursor: pointer; font: inherit; }
+.sc-cta--two .sc-wa { flex-direction: row !important; padding-inline: 22px; }
+@media (max-width: 860px) { .sc-hero--e h1.sc-stage__title { font-size: 15vw !important; } }

@@ -205,16 +205,16 @@
   var F = [{ x: 270, l: 'Monthly', s: [] }, { x: 505, l: 'Annual', s: [] }, { x: 740, l: 'Family', s: [] }];
   var TOP = 470, MOUTH = 62, NECK = 12, BOT = 540;
   function cloud(cx, cy, s) { x.fillStyle = 'rgba(255,255,255,.92)'; x.beginPath(); [[-34, 6, 22], [-12, -8, 28], [16, -4, 24], [36, 8, 18], [0, 10, 24]].forEach(function (k) { x.moveTo(cx + k[0] * s + k[2] * s, cy + k[1] * s); x.arc(cx + k[0] * s, cy + k[1] * s, k[2] * s, 0, 7); }); x.fill(); }
-  function cpos(ch) { return { x: ch.x + Math.sin(t / 140 + ch.x) * 10, y: 70 + Math.sin(t / 110 + ch.x * 2) * 3 }; }
+  function cpos(ch) { return { x: ch.x + Math.sin(t / 220 + ch.x) * 8, y: 70 + Math.sin(t / 170 + ch.x * 2) * 3 }; }
   function spawn() { var ch = CH[(Math.random() * 4) | 0], p = cpos(ch); ch.pulse = 1; B.push({ x: p.x + rnd(-14, 14), y: p.y + 26, vx: rnd(-.5, .5), vy: .4, r: 7.5, st: 0, a: 1, e: 0, c: ch.c, cc: ch.c }); }
   function hit(b, p) { var dx = b.x - p.x, dy = b.y - p.y, d = Math.hypot(dx, dy), m = b.r + p.r; if (d < m && d > 0) { var nx = dx / d, ny = dy / d; b.x = p.x + nx * m; b.y = p.y + ny * m; var dot = b.vx * nx + b.vy * ny; if (dot < 0) { b.vx -= 1.55 * dot * nx; b.vy -= 1.55 * dot * ny; b.vx *= .92; b.vy *= .92; b.vx += rnd(-.15, .15); p.h = 1; } } }
   function step() {
     for (var i = B.length - 1; i >= 0; i--) { var b = B[i];
-      if (b.st === 0) { b.vy = Math.min(b.vy + .1, 3.8); b.x += b.vx; b.y += b.vy; pegs.forEach(function (p) { hit(b, p); }); bump.forEach(function (p) { hit(b, p); });
+      if (b.st === 0) { b.vy = Math.min(b.vy + .06, 2.4); b.x += b.vx; b.y += b.vy; pegs.forEach(function (p) { hit(b, p); }); bump.forEach(function (p) { hit(b, p); });
         if (b.x < 150) { b.x = 150; b.vx = Math.abs(b.vx) * .6; } if (b.x > W - 150) { b.x = W - 150; b.vx = -Math.abs(b.vx) * .6; }
-        if (b.e < bands.length && b.y > bands[b.e].y) { if (Math.random() < bands[b.e].p) { b.st = 3; b.vx = (b.x < 505 ? -1 : 1) * rnd(5, 6.5); b.vy = rnd(-1.6, -.4); b.c = '#9AA6B5'; } b.e++; }
+        if (b.e < bands.length && b.y > bands[b.e].y) { if (Math.random() < bands[b.e].p) { b.st = 3; b.vx = (b.x < 505 ? -1 : 1) * rnd(3, 4); b.vy = rnd(-1, -.3); b.c = '#9AA6B5'; } b.e++; }
         if (b.st === 0 && b.y > TOP) { var f0 = F[0]; F.forEach(function (f) { if (Math.abs(b.x - f.x) < Math.abs(b.x - f0.x)) f0 = f; }); b.st = 1; b.f = f0; }
-      } else if (b.st === 1) { b.x += (b.f.x - b.x) * .08; b.y += 2.2; if (b.y > BOT) { if (b.f.s.length >= 24) b.f.s.splice(0, 3); b.f.s.push(b.cc); B.splice(i, 1); } }
+      } else if (b.st === 1) { b.x += (b.f.x - b.x) * .06; b.y += 1.4; if (b.y > BOT) { if (b.f.s.length >= 24) b.f.s.splice(0, 3); b.f.s.push(b.cc); B.splice(i, 1); } }
       else { b.vy += .03; b.y += b.vy; b.x += b.vx; b.vx *= .996; if (b.x < 40 || b.x > W - 40) b.a -= .06; if (b.a <= 0 || b.x < -10 || b.x > W + 10) B.splice(i, 1); }
     }
   }
@@ -231,8 +231,8 @@
       f.s.forEach(function (q, i) { x.beginPath(); x.arc(f.x + ((i % 3) - 1) * 13, BOT + 54 - Math.floor(i / 3) * 12, 6, 0, 7); x.fillStyle = q; x.fill(); }); });
     B.forEach(function (b) { x.globalAlpha = Math.max(0, b.a); x.beginPath(); x.arc(b.x, b.y, b.r, 0, 7); x.fillStyle = b.c; x.fill(); x.globalAlpha = 1; });
   }
-  function loop() { t++; if (t % 42 === 0) spawn(); step(); draw(); raf = requestAnimationFrame(loop); }
-  function still() { for (var s = 0; s < 2400; s++) { t++; if (s % 42 === 0) spawn(); step(); } draw(); }
+  function loop() { t++; if (t % 72 === 0) spawn(); step(); draw(); raf = requestAnimationFrame(loop); }
+  function still() { for (var s = 0; s < 2400; s++) { t++; if (s % 72 === 0) spawn(); step(); } draw(); }
   function start() { if (raf) return; if (off()) { still(); return; } loop(); }
   function stop() { if (raf) { cancelAnimationFrame(raf); raf = null; } }
   var io = new IntersectionObserver(function (es) { es.forEach(function (e) { e.isIntersecting ? start() : stop(); }); }, { threshold: .15 });
@@ -270,4 +270,11 @@
     el.textContent = W[i].slice(0, n) || '\u200b'; setTimeout(tick, d);
   }
   setTimeout(function () { del = true; tick(); }, 2600);
+})();
+
+/* CV viewer: opens over the page, no download link */
+(function () {
+  var d = document.querySelector('.sc-cv'); if (!d || !d.showModal) return;
+  document.addEventListener('click', function (e) { var b = e.target.closest('[data-cv]'); if (!b) return; e.preventDefault(); d.showModal(); });
+  d.addEventListener('click', function (e) { if (e.target === d || e.target.closest('.sc-cv__x')) d.close(); });
 })();
