@@ -956,6 +956,8 @@ body { margin: 0; padding: var(--space-5); }
   .sc-card .sc-meta { align-self: flex-start; padding: 2px 10px; border-radius: 999px; background: var(--sc-bg); color: var(--sc-ct); font-weight: 600; }
   .sc-card--blue { --sc-c: #3E7BC4; --sc-bg: #E5EFF8; --sc-ct: #1F5E99; }
   .sc-card--pink { --sc-c: #C25E8C; --sc-bg: #F8EBF1; --sc-ct: #933F6A; }
+  .sc-card--purple { --sc-c: #7A62C9; --sc-bg: #F0EBF7; --sc-ct: #674A93; }
+  .sc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   .sc-card--green { --sc-c: #2A9D8F; --sc-bg: #E8F2EB; --sc-ct: #2E6B4A; }
   .sc-proof li:nth-child(1) { border-color: #3E7BC4; } .sc-proof li:nth-child(2) { border-color: #7A62C9; } .sc-proof li:nth-child(3) { border-color: #D9732F; }
   .sc-proof b { color: var(--ink); }
@@ -997,7 +999,7 @@ body { margin: 0; padding: var(--space-5); }
       <div><dt>B.Sc.</dt><dd>הנדסת תעשייה וניהול (מערכות נבונות), בן־גוריון</dd></div>
     </dl>
 
-    <h2 class="sc-section" id="tools">ארבעה כלים שבניתי</h2>
+    <h2 class="sc-section" id="tools">חמישה כלים שבניתי</h2>
 
     <article class="nd-feature nd-feature--navy">
       <div class="nd-feature__body">
@@ -1010,6 +1012,13 @@ body { margin: 0; padding: var(--space-5); }
     </article>
 
     <div class="sc-grid">
+      <article class="sc-card sc-card--purple">
+        <a class="sc-shot fx-pan" data-peek="Growth Analytics + AI Agent" href="tools/data-lab/" aria-label="ל-case study של Growth Analytics"><img src="tools/data-lab/thumb.webp" alt="גרף ניסוי geo holdout: ההרשמות יורדות במדינות שבהן Meta כובה" width="960" height="600" loading="lazy"></a>
+        <span class="sc-meta">Data · Statistics · AI agent · דאטה סינתטי</span>
+        <h3>איזה ערוץ באמת מביא משלמים?</h3>
+        <p>BigQuery, dbt ו-Python על אפליקציית מנויים: ניסוי geo holdout הראה ש-Meta אינקרמנטלי ב-78% בלבד, וסוכן AI שבודק A/B tests תפס ניסוי שבור לפני ההחלטה.</p>
+        <a class="nd-btn nd-btn--secondary sc-go" href="tools/data-lab/">ל-case study <span class="sc-arrow" aria-hidden="true">←</span></a>
+      </article>
       <article class="sc-card sc-card--blue">
         <a class="sc-shot fx-pan" data-peek="Lead Quality Dashboard" href="tools/lead-quality/" aria-label="לדשבורד איכות הלידים"><img src="assets/lead-quality.webp" alt="צילום מסך של דשבורד איכות הלידים" width="960" height="600" loading="lazy"></a>
         <span class="sc-meta">Paid · BI · באנגלית</span>
