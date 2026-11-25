@@ -132,24 +132,27 @@ html[data-theme="landing"] body::after { content: ""; position: fixed; inset: 0;
 html[data-theme="landing"] .sc-top { top: 12px; inline-size: calc(100% - 24px); max-inline-size: 1112px; margin: 12px auto 0; border-radius: 999px; border: 1px solid rgba(45,53,76,.08); box-shadow: 0 8px 24px rgba(45,53,76,.08); background: rgba(255,255,255,.62); }
 @media (max-width: 767px) { html[data-theme="landing"] .sc-top { border-radius: 22px; top: 8px; margin-top: 8px; inline-size: calc(100% - 16px); } }
 
-/* Hero stage: huge title, the job-search dashboard in front of it */
-.sc-hero.sc-stage { display: grid !important; grid-template-columns: minmax(0,1fr) minmax(0,1fr); column-gap: 32px; row-gap: 0; align-items: start; padding-block: 36px 24px !important; }
-.sc-stage .sc-kicker { grid-area: 1 / 1 / 2 / -1; text-align: center; margin: 0; font-size: 15px; color: var(--ink-muted); }
-.sc-hero h1.sc-stage__title { grid-area: 2 / 1 / 3 / -1; justify-self: center; z-index: 1; margin: 0; max-inline-size: none !important; font-size: clamp(72px, 16vw, 210px) !important; line-height: .92 !important; letter-spacing: -.02em !important; font-weight: 800; color: var(--ink); white-space: nowrap; transform: translateY(var(--ty1, 0px)); }
-.sc-3d { grid-area: 2 / 2 / 4 / 3; z-index: 2; margin-block-start: clamp(64px, 9.5vw, 128px); display: block; position: relative; border-radius: 16px; text-decoration: none;
-  transform: perspective(1400px) rotateY(calc(-14deg + var(--rx, 0deg))) rotateX(calc(6deg + var(--ry, 0deg))) translateY(var(--ty2, 0px)); transform-origin: 50% 50%; transition: transform .5s cubic-bezier(.22,1,.36,1); }
-.sc-3d img { display: block; inline-size: 100%; block-size: auto; border-radius: 16px; border: 6px solid #fff; box-shadow: 0 30px 60px rgba(31,48,64,.28), 0 6px 14px rgba(31,48,64,.12); }
-.sc-3d span { position: absolute; inset-block-end: 14px; inset-inline-start: 14px; padding: 4px 12px; border-radius: 999px; background: #E9F5A8; color: #4B5A06; font: 600 13px/18px var(--font-sans); }
-.sc-stage__title .fx-dot { inline-size: .12em; block-size: .12em; }
+/* Hero stage: centred title, the job-search dashboard tilted back below it */
+.sc-hero.sc-stage { display: flex !important; flex-direction: column; align-items: center; text-align: center; gap: 0; padding-block: 56px 8px !important; }
+.sc-stage .sc-kicker { margin: 0 0 6px; font-size: 15px; color: var(--ink-muted); text-align: center !important; }
+.sc-hero h1.sc-stage__title { margin: 0; max-inline-size: none !important; font-size: clamp(64px, 11vw, 148px) !important; line-height: 1 !important; letter-spacing: -.01em !important; font-weight: 800; color: var(--ink); white-space: nowrap; transform: translateY(var(--ty1, 0px)); }
+.sc-stage__title .fx-dot { inline-size: .13em; block-size: .13em; animation: fxDot 420ms cubic-bezier(.34,1.56,.64,1) forwards, scCaret 1.1s step-end infinite; animation-delay: calc(var(--n, 6) * 38ms + 320ms), calc(var(--n, 6) * 38ms + 1100ms); }
+@keyframes scCaret { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+.sc-stage .sc-hero__text { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-block-start: 14px; }
+.sc-stage .sc-hero__text p { text-align: center; margin-inline: auto; }
+.sc-stage .sc-cta { justify-content: center; }
+.sc-3d { display: block; inline-size: min(860px, 100%); margin-block-start: 44px; border-radius: 16px; text-decoration: none; transform-origin: 50% 0%;
+  transform: perspective(1600px) rotateX(calc(18deg + var(--ry, 0deg))) rotateY(var(--rx, 0deg)) translateY(var(--ty2, 0px)); transition: transform .5s cubic-bezier(.22,1,.36,1); }
+.sc-3d img { display: block; inline-size: 100%; block-size: auto; border-radius: 16px; border: 6px solid #fff; box-shadow: 0 40px 70px rgba(31,48,64,.26), 0 8px 16px rgba(31,48,64,.10); }
 .sc-3d:focus-visible { outline: 3px solid #1F6FC5; outline-offset: 6px; }
-.sc-stage .sc-hero__text { grid-area: 3 / 1 / 4 / 2; z-index: 3; padding-block-start: 28px; display: flex; flex-direction: column; gap: 16px; }
 @media (max-width: 767px) {
-  .sc-hero.sc-stage { grid-template-columns: minmax(0,1fr); padding-block: 24px 8px !important; }
+  .sc-hero.sc-stage { padding-block: 32px 4px !important; }
   .sc-stage .sc-kicker { font-size: 13px; }
-  .sc-hero h1.sc-stage__title { font-size: 19vw !important; grid-column: 1; }
-  .sc-3d { grid-area: 3 / 1 / 4 / 2; margin-block-start: -5vw; inline-size: 90%; justify-self: center; transform: perspective(900px) rotateX(10deg) rotate(-2deg); }
-  .sc-stage .sc-hero__text { grid-area: 4 / 1 / 5 / 2; }
+  .sc-hero h1.sc-stage__title { font-size: 18vw !important; }
+  .sc-3d { inline-size: 92%; margin-block-start: 28px; transform: perspective(900px) rotateX(14deg); }
 }
+@media (prefers-reduced-motion: reduce) { .sc-stage__title .fx-dot { animation: none; opacity: 1; transform: none; } }
+html.no-motion .sc-stage__title .fx-dot { animation: none !important; opacity: 1 !important; transform: none !important; }
 
 /* Accent word: hand-drawn underline */
 .sc-acc { font-style: normal; white-space: nowrap; padding-block-end: .1em; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'%3E%3Cpath d='M2 8 C20 3 34 10 52 6 S86 3 100 7 S114 6 118 5' fill='none' stroke='%235FB3CF' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E") bottom / 100% .32em no-repeat; }
