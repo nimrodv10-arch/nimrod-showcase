@@ -237,3 +237,19 @@
   io.observe(c);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (!raf) draw(); });
 })();
+
+/* Copy e-mail; links that pre-pick the form topic */
+(function () {
+  document.querySelectorAll('.sc-copy').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var v = b.getAttribute('data-copy'), done = function () { var o = b.textContent; b.textContent = 'הועתק'; setTimeout(function () { b.textContent = o; }, 1600); };
+      if (navigator.clipboard) navigator.clipboard.writeText(v).then(done, function () { location.href = 'mailto:' + v; }); else location.href = 'mailto:' + v;
+    });
+  });
+  document.querySelectorAll('a[data-topic]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var d = document.querySelector('.sc-formwrap'), s = document.querySelector('.sc-form select[name="topic"]');
+      if (s) s.value = a.getAttribute('data-topic'); if (d) d.open = true;
+    });
+  });
+})();
