@@ -1,0 +1,83 @@
+/* Round 3: contact, accessibility, logo. Shared by every Hebrew page. */
+.sc-logo { display: inline-flex; align-items: center; justify-content: center; inline-size: 32px; block-size: 32px; border-radius: 9px; background: var(--ink); color: var(--canvas); font: 700 13px/1 var(--font-sans); letter-spacing: .02em; flex: none; }
+.sc-top__name { gap: 8px; }
+.sc-logo b { color: #F2B84B; font-weight: 700; }
+.sc-ico { inline-size: 44px; block-size: 44px; display: inline-grid; place-items: center; border-radius: 999px; color: var(--ink); text-decoration: none; transition: background-color 150ms cubic-bezier(.22,1,.36,1); }
+.sc-ico:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.sc-ico:active { transform: scale(.97); }
+.sc-ico svg { inline-size: 20px; block-size: 20px; }
+.sc-ico:focus-visible, .sc-fab:focus-visible, .sc-a11y button:focus-visible, .sc-form :focus-visible { outline: 2px solid #2D5BD8; outline-offset: 2px; }
+
+/* Floating buttons: WhatsApp + accessibility */
+.sc-fabs { position: fixed; inset-block-end: max(16px, env(safe-area-inset-bottom, 0px)); inset-inline-start: 16px; z-index: 20; display: flex; flex-direction: column; gap: 10px; }
+.sc-fab { inline-size: 52px; block-size: 52px; border-radius: 999px; border: 0; display: grid; place-items: center; cursor: pointer; box-shadow: 0 6px 18px rgba(15,15,15,.18); transition: transform 150ms cubic-bezier(.22,1,.36,1); text-decoration: none; }
+.sc-fab:hover { transform: translateY(-2px); } .sc-fab:active { transform: scale(.97); }
+.sc-fab svg { inline-size: 26px; block-size: 26px; }
+.sc-fab--wa { background: #1F9D55; color: #fff; }
+.sc-fab--a11y { background: var(--surface, #fff); color: var(--ink); border: 1px solid var(--border-strong, #ccc); inline-size: 44px; block-size: 44px; margin-inline-start: 4px; }
+.sc-fab--a11y svg { inline-size: 22px; block-size: 22px; }
+
+.sc-a11y { position: fixed; inset-block-end: calc(max(16px, env(safe-area-inset-bottom, 0px)) + 120px); inset-inline-start: 16px; z-index: 21; inline-size: min(300px, calc(100vw - 32px)); padding: 16px; border-radius: 16px; background: var(--surface, #fff); color: var(--ink); border: 1px solid var(--border-strong, #ccc); box-shadow: 0 20px 50px rgba(15,15,15,.22); font: 400 15px/22px var(--font-sans); }
+.sc-a11y[hidden] { display: none; }
+.sc-a11y h2 { margin: 0 0 10px; font: 600 16px/22px var(--font-sans); }
+.sc-a11y__row { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-block: 6px; border-block-start: 1px solid var(--border, #eee); }
+.sc-a11y__row div { display: flex; gap: 6px; }
+.sc-a11y button { min-inline-size: 44px; min-block-size: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--border-strong, #ccc); background: var(--canvas, #fff); color: var(--ink); font: 500 15px/20px var(--font-sans); cursor: pointer; }
+.sc-a11y button[aria-pressed="true"] { background: var(--ink); color: var(--canvas); border-color: var(--ink); }
+.sc-a11y a { display: inline-block; margin-block-start: 8px; color: var(--ink); }
+
+/* Text size + stop motion (set on <html> by sc-extra.js) */
+html[data-text="1"] body { zoom: 1.12; }
+html[data-text="2"] body { zoom: 1.25; }
+html.no-motion *, html.no-motion *::before, html.no-motion *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+html.no-motion .fx-pen { clip-path: none !important; color: var(--ink) !important; -webkit-text-stroke: 0 !important; }
+html.no-motion .fx-reveal > * { opacity: 1 !important; transform: none !important; }
+html.no-motion canvas.sc-live { display: none; }
+
+/* "What I can build for you" */
+.sc-build { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4, 16px); list-style: none; padding: 0; margin: 0; }
+.sc-build li { padding: 20px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); border-block-start: 4px solid var(--c, #2D5BD8); }
+.sc-build b { display: block; font: 600 17px/24px var(--font-sans); color: var(--ink); margin-block-end: 6px; }
+.sc-build p { margin: 0 0 10px; color: var(--ink-muted); font-size: 15px; line-height: 23px; }
+.sc-build a { color: var(--ink); font: 500 14px/20px var(--font-sans); }
+@media (max-width: 767px) { .sc-build { grid-template-columns: 1fr; } }
+
+/* Contact form (client side only: opens WhatsApp or mail with the text filled in) */
+.sc-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-block-start: var(--space-4, 16px); inline-size: 100%; }
+.sc-form label { display: grid; gap: 4px; font: 500 14px/20px var(--font-sans); }
+.sc-form label.full { grid-column: 1 / -1; }
+.sc-form input, .sc-form select, .sc-form textarea { font: 400 16px/22px var(--font-sans); padding: 10px 12px; min-block-size: 44px; border-radius: 10px; border: 1px solid rgba(252,250,255,.35); background: rgba(252,250,255,.08); color: inherit; }
+.sc-form select option { color: #111; }
+.sc-form textarea { min-block-size: 96px; resize: vertical; }
+.sc-form input::placeholder, .sc-form textarea::placeholder { color: inherit; opacity: .6; }
+.sc-form__actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.sc-form__note { font-size: 13px; opacity: .75; }
+.sc-form__err { grid-column: 1 / -1; margin: 0; font-size: 14px; color: #FFD2C8; }
+@media (max-width: 767px) { .sc-form { grid-template-columns: 1fr; } }
+
+.sc-foot a + a { margin-inline-start: 16px; }
+@media print { .sc-fabs, .sc-a11y { display: none; } }
+
+/* Hero: kicker + letter-by-letter title with a red dot */
+.sc-kicker { margin: 0 0 8px; font: 600 14px/20px var(--font-sans); color: var(--ink-muted); letter-spacing: .01em; }
+.fx-type .ch { opacity: 0; animation: fxCh 1ms linear forwards; animation-delay: calc(var(--i) * 38ms + 200ms); }
+.fx-type .fx-dot { display: inline-block; inline-size: .22em; block-size: .22em; border-radius: 50%; background: #D93A2B; margin-inline-start: .08em; vertical-align: baseline; opacity: 0; transform: scale(0); animation: fxDot 420ms cubic-bezier(.34,1.56,.64,1) forwards; animation-delay: calc(var(--n) * 38ms + 320ms); }
+@keyframes fxCh { to { opacity: 1; } }
+@keyframes fxDot { to { opacity: 1; transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .fx-type .ch, .fx-type .fx-dot { animation: none; opacity: 1; transform: none; } }
+html.no-motion .fx-type .ch, html.no-motion .fx-type .fx-dot { opacity: 1 !important; transform: none !important; }
+
+/* Ryze result tiles */
+.sc-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4, 16px); list-style: none; padding: 0; margin: 0; }
+.sc-results li { padding: 20px; border-radius: 16px; background: color-mix(in srgb, var(--c) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--c) 22%, var(--border)); }
+.sc-results b { display: block; font: 700 30px/36px var(--font-sans); color: var(--c); margin-block-end: 6px; }
+.sc-results span { color: var(--ink-muted); font-size: 15px; line-height: 22px; }
+@media (max-width: 767px) { .sc-results { grid-template-columns: 1fr; } .sc-results b { font-size: 26px; line-height: 32px; } }
+
+/* Icons inside buttons */
+.nd-btn .bi { inline-size: 18px; block-size: 18px; flex: none; margin-inline-end: 6px; }
+.sc-hero h1.fx-type { font-size: clamp(32px, 4vw, 46px) !important; }
+.sc-top__name, .sc-top .nd-btn { white-space: nowrap; }
+@media (max-width: 480px) { .sc-ico--gh { display: none; } .sc-fab { inline-size: 46px; block-size: 46px; } .sc-fab--a11y { inline-size: 40px; block-size: 40px; } body { padding-block-end: 64px; } }
+html[data-text="1"] .sc-a11y, html[data-text="1"] .sc-fabs { zoom: .893; }
+html[data-text="2"] .sc-a11y, html[data-text="2"] .sc-fabs { zoom: .8; }
