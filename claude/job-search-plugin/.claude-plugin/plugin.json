@@ -1,0 +1,8 @@
+{
+  "name": "job-search",
+  "version": "0.1.0",
+  "description": "Job search with Claude: score any job link against your own profile, tailor your CV without inventing anything, and prepare for interviews. Built from the workflow behind Interview OS.",
+  "author": { "name": "Nimrod Vassal", "url": "https://github.com/nimrodv10-arch" },
+  "homepage": "https://nimrodv10-arch.github.io/nimrod-showcase/tools/interview-os/",
+  "keywords": ["job-search", "cv", "interview", "hebrew"]
+}
