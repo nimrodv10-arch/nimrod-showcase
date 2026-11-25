@@ -20,7 +20,7 @@ Prove that Nimrod (performance marketing, data analytics, business operations; e
 
 ## Positioning
 
-A marketer with P&L-style business ownership who designs and ships his own data tools and AI agents. Each tool comes from a real problem he had at work or at home, and the Interview OS case study shows scheduled agents, Skills, connectors and a scoring model he uses daily.
+A marketer who owned revenue and profitability who designs and ships his own data tools and AI agents. Each tool comes from a real problem he had at work or at home, and the Interview OS case study shows scheduled agents, Skills, connectors and a scoring model he uses daily.
 
 ## Operating Context
 
