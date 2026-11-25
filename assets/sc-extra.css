@@ -305,3 +305,13 @@ a.sc-way:hover { border-color: rgba(31,127,166,.4); }
 .sv-ill .d { fill: #D93A2B; stroke: none; }
 .sv-ill .d2 { stroke: #D93A2B; stroke-width: 3; }
 .sv-ill .i { fill: var(--ink); }
+
+/* Steps without numbered circles: a hand-drawn arrow leads from one step to the next */
+.sc-steps li, .sc-funnel__txt li { padding-inline-start: 0; }
+.sc-steps li::before, .sc-funnel__txt li::before { content: none; }
+.sc-steps ol { gap: 16px 44px; }
+.sc-steps li + li { position: relative; }
+.sc-steps li + li::after { content: ""; position: absolute; inset-inline-start: -38px; top: 2px; inline-size: 30px; block-size: 18px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 18'%3E%3Cpath d='M28 10c-7-3-15 1-24-1M9 3 3 9l7 5' fill='none' stroke='%235FB3CF' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat; }
+.sc-steps b::after, .sc-funnel__txt b::after { content: ""; display: inline-block; inline-size: .2em; block-size: .2em; border-radius: 50%; background: #D93A2B; margin-inline-start: .08em; }
+.sc-funnel__txt li { border-inline-start: 2px solid #BCE3D0; padding-inline-start: 14px; }
+@media (max-width: 900px) { .sc-steps li + li::after { inset-inline-start: auto; inset-inline-end: auto; top: -20px; right: 0; transform: rotate(-90deg); } .sc-steps ol { gap: 28px; } }
