@@ -60,7 +60,12 @@
     }
     size(); init(); addEventListener('resize', function () { size(); draw(); });
     var last = performance.now();
-    (function f(now) { now = now || last; t += Math.min(50, now - last); last = now; if (!root.classList.contains('no-motion') && !document.hidden) draw(); if (!reduce) requestAnimationFrame(f); })();
+    var vis = true, rid = 0;
+    function f(now) { rid = 0; now = now || last; t += Math.min(50, now - last); last = now; if (!root.classList.contains('no-motion') && !document.hidden) draw(); if (!reduce && vis && !document.hidden) rid = requestAnimationFrame(f); }
+    function go() { if (!rid && !reduce) { last = performance.now(); rid = requestAnimationFrame(f); } }
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { vis = es[0].isIntersecting; if (vis) go(); }).observe(hero);
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) go(); });
+    go();
     if (reduce) draw();
   }
 
@@ -198,11 +203,11 @@
   var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function off() { return rm || document.documentElement.classList.contains('no-motion'); }
   function rnd(a, b) { return a + Math.random() * (b - a); }
-  var CH = [{ l: 'Search', x: 230, c: '#1F7FA6' }, { l: 'Meta', x: 410, c: '#3E6FB0' }, { l: 'TikTok', x: 590, c: '#2B8C8C' }, { l: 'Email', x: 770, c: '#2E8A5E' }];
-  var bands = [{ y: 190, l: 'Landing page', s: 'Landing', p: .26 }, { y: 290, l: 'Pricing', s: 'Pricing', p: .24 }, { y: 390, l: 'Free trial', s: 'Trial', p: .2 }];
+  var CH = [{ l: 'חיפוש', x: 230, c: '#1F7FA6' }, { l: 'Meta', x: 410, c: '#3E6FB0' }, { l: 'TikTok', x: 590, c: '#2B8C8C' }, { l: 'מייל', x: 770, c: '#2E8A5E' }];
+  var bands = [{ y: 190, l: 'דף נחיתה', s: 'נחיתה', p: .26 }, { y: 290, l: 'מחירים', s: 'מחירים', p: .24 }, { y: 390, l: 'ניסיון חינם', s: 'ניסיון', p: .2 }];
   var pegs = []; for (var r = 0; r < 6; r++) { var off2 = (r % 2) * 42; for (var px = 190 + off2; px <= 830; px += 84) pegs.push({ x: px, y: 170 + r * 44, r: 6.5, h: 0 }); }
   var bump = [{ x: 358, y: 236, r: 15, h: 0, c: '#A7D3E4' }, { x: 652, y: 236, r: 15, h: 0, c: '#BCE3D0' }, { x: 505, y: 368, r: 15, h: 0, c: '#C9D3DA' }];
-  var F = [{ x: 270, l: 'Monthly', s: [] }, { x: 505, l: 'Annual', s: [] }, { x: 740, l: 'Family', s: [] }];
+  var F = [{ x: 270, l: 'חודשי', s: [] }, { x: 505, l: 'שנתי', s: [] }, { x: 740, l: 'משפחתי', s: [] }];
   var TOP = 470, MOUTH = 62, NECK = 12, BOT = 540;
   function cloud(cx, cy, s) { x.fillStyle = 'rgba(255,255,255,.92)'; x.beginPath(); [[-34, 6, 22], [-12, -8, 28], [16, -4, 24], [36, 8, 18], [0, 10, 24]].forEach(function (k) { x.moveTo(cx + k[0] * s + k[2] * s, cy + k[1] * s); x.arc(cx + k[0] * s, cy + k[1] * s, k[2] * s, 0, 7); }); x.fill(); }
   function cpos(ch) { return { x: ch.x + Math.sin(t / 220 + ch.x) * 8, y: 70 + Math.sin(t / 170 + ch.x * 2) * 3 }; }
@@ -218,11 +223,11 @@
       else { b.vy += .03; b.y += b.vy; b.x += b.vx; b.vx *= .996; if (b.x < 40 || b.x > W - 40) b.a -= .06; if (b.a <= 0 || b.x < -10 || b.x > W + 10) B.splice(i, 1); }
     }
   }
-  function fnt(w, s) { var k = c.clientWidth ? Math.max(1, Math.min(2.1, 740 / c.clientWidth)) : 1; return w + ' ' + Math.round(s * k) + 'px Fredoka, sans-serif'; }
+  function fnt(w, s) { var k = c.clientWidth ? Math.max(1, Math.min(2.1, 740 / c.clientWidth)) : 1; return w + ' ' + Math.round(s * k) + 'px Rubik, sans-serif'; }
   function draw() {
     x.clearRect(0, 0, W, H); x.direction = 'ltr';
     CH.forEach(function (ch) { var p = cpos(ch); ch.pulse = (ch.pulse || 0) * .93; cloud(p.x, p.y, 1 + ch.pulse * .06); x.fillStyle = ch.c; x.font = fnt(700, 19); x.textAlign = 'center'; x.fillText(ch.l, p.x, p.y + 6); });
-    var nar = c.clientWidth && c.clientWidth < 500; bands.forEach(function (b) { x.textAlign = 'left'; x.fillStyle = 'rgba(45,53,76,.85)'; x.font = fnt(600, 18); x.fillText(nar ? b.s : b.l, 26, b.y - 6); x.strokeStyle = 'rgba(45,53,76,.22)'; x.lineWidth = 1.5; x.setLineDash([3, 7]); x.beginPath(); x.moveTo(26, b.y); x.lineTo(W - 26, b.y); x.stroke(); x.setLineDash([]); x.fillStyle = 'rgba(85,96,122,.8)'; x.font = fnt(500, 15); x.textAlign = 'right'; if (!nar) x.fillText('drop-off →', W - 26, b.y - 6); });
+    var nar = c.clientWidth && c.clientWidth < 500; bands.forEach(function (b) { x.textAlign = 'right'; x.fillStyle = 'rgba(45,53,76,.85)'; x.font = fnt(600, 18); x.fillText(nar ? b.s : b.l, W - 26, b.y - 6); x.strokeStyle = 'rgba(45,53,76,.22)'; x.lineWidth = 1.5; x.setLineDash([3, 7]); x.beginPath(); x.moveTo(26, b.y); x.lineTo(W - 26, b.y); x.stroke(); x.setLineDash([]); x.fillStyle = 'rgba(85,96,122,.8)'; x.font = fnt(500, 17); x.textAlign = 'left'; if (!nar) x.fillText('← נשירה', 26, b.y - 6); });
     pegs.forEach(function (p) { p.h *= .9; x.beginPath(); x.arc(p.x, p.y, p.r + p.h * 2, 0, 7); x.fillStyle = p.h > .05 ? 'rgba(45,53,76,.7)' : 'rgba(45,53,76,.42)'; x.fill(); });
     bump.forEach(function (p) { p.h *= .92; x.beginPath(); x.arc(p.x, p.y, p.r + p.h * 4, 0, 7); x.fillStyle = p.c; x.fill(); x.lineWidth = 2; x.strokeStyle = 'rgba(255,255,255,.9)'; x.stroke(); });
     x.strokeStyle = '#2D354C'; x.lineWidth = 3.5; x.lineCap = 'round';

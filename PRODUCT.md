@@ -12,7 +12,7 @@ Static HTML/CSS/JS, no build step. Published from `main` (site: https://nimrodv1
 
 ## Users
 
-Primary: recruiters and hiring managers in Israel who reach the site from Nimrod's LinkedIn profile or CV, usually on a phone, with about a minute to spare. Secondary: small-business owners who might hire him for AI-built tools. (Priority delegated by Nimrod on 25.11.2026: "apply what fits me best".)
+Primary (updated by Nimrod 26.11.2026): small-business owners in Israel who want to see what he can build for them. The site shows value and work, it does not sell. Secondary: recruiters and hiring managers in Israel, usually on a phone.
 
 ## Product Purpose
 
