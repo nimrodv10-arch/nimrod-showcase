@@ -12,7 +12,7 @@ Static HTML/CSS/JS, no build step. Published from `main` (site: https://nimrodv1
 
 ## Users
 
-Primary: recruiters and hiring managers in Israel who reach the site from Nimrod's LinkedIn profile or CV, usually on a phone, with about a minute to spare. Secondary: small-business owners who might hire him for AI-built tools. (Priority delegated by Nimrod on 25.11.2026: "apply what fits me best".)
+Primary (updated by Nimrod 26.11.2026): small-business owners in Israel who want to see what he can build for them. The site shows value and work, it does not sell. Secondary: recruiters and hiring managers in Israel, usually on a phone.
 
 ## Product Purpose
 
@@ -28,7 +28,7 @@ Visitors arrive from LinkedIn Featured, the CV, or a link sent before an intervi
 
 ## Capabilities and Constraints
 
-- Hebrew, RTL, is the main language; no English page (removed 25.11.2026; `tools/nimrod-vassal/` redirects home).
+- Home page is in English, LTR (Nimrod, 26.11.2026). Tool pages, accessibility and privacy pages stay in Hebrew. `tools/nimrod-vassal/` redirects home.
 - All tools run on sample or synthetic data. Real personal data (job pipeline, contacts, company names) never appears.
 - Every career fact must match the official CV (v9, 24.11.2026). No partner or employer-client names, no "comparison-site" framing, no P&L Manager title.
 - Departure from Ryze is never framed as a layoff.

@@ -60,7 +60,12 @@
     }
     size(); init(); addEventListener('resize', function () { size(); draw(); });
     var last = performance.now();
-    (function f(now) { now = now || last; t += Math.min(50, now - last); last = now; if (!root.classList.contains('no-motion') && !document.hidden) draw(); if (!reduce) requestAnimationFrame(f); })();
+    var vis = true, rid = 0;
+    function f(now) { rid = 0; now = now || last; t += Math.min(50, now - last); last = now; if (!root.classList.contains('no-motion') && !document.hidden) draw(); if (!reduce && vis && !document.hidden) rid = requestAnimationFrame(f); }
+    function go() { if (!rid && !reduce) { last = performance.now(); rid = requestAnimationFrame(f); } }
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { vis = es[0].isIntersecting; if (vis) go(); }).observe(hero);
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) go(); });
+    if (getComputedStyle(cv).display !== 'none') go();
     if (reduce) draw();
   }
 
@@ -109,11 +114,11 @@
     var err = f.querySelector('.sc-form__err');
     function text() {
       var n = f.elements.name.value.trim(), t = f.elements.topic.value, m = f.elements.msg.value.trim();
-      if (!n || !m) { err.textContent = !n ? 'חסר שם. איך לפנות אליך?' : 'חסרה הודעה. מספיק משפט אחד.'; (!n ? f.elements.name : f.elements.msg).focus(); return null; }
+      if (!n || !m) { err.textContent = EN ? (!n ? 'Please add your name.' : 'Please add a message. One sentence is enough.') : (!n ? 'חסר שם. איך לפנות אליך?' : 'חסרה הודעה. מספיק משפט אחד.'); (!n ? f.elements.name : f.elements.msg).focus(); return null; }
       err.textContent = '';
-      return 'היי נמרוד, הגעתי מהאתר.\nשם: ' + n + '\nנושא: ' + t + '\n\n' + m;
+      return EN ? 'Hi Nimrod, I found you through your website.\nName: ' + n + '\nTopic: ' + t + '\n\n' + m : 'היי נמרוד, הגעתי מהאתר.\nשם: ' + n + '\nנושא: ' + t + '\n\n' + m;
     }
-    f.addEventListener('submit', function (e) { e.preventDefault(); var s = text(); if (s) location.href = 'mailto:nimrodv10@gmail.com?subject=' + encodeURIComponent('פנייה מהאתר: ' + f.elements.topic.value) + '&body=' + encodeURIComponent(s); });
+    f.addEventListener('submit', function (e) { e.preventDefault(); var s = text(); if (s) location.href = 'mailto:nimrodv10@gmail.com?subject=' + encodeURIComponent((EN ? 'Website message: ' : 'פנייה מהאתר: ') + f.elements.topic.value) + '&body=' + encodeURIComponent(s); });
   }
 })();
 
@@ -151,7 +156,7 @@
   var box = document.querySelector('.sc-journey'); if (!box) return;
   var row = box.querySelector('.sj-row'), cards = [].slice.call(row.querySelectorAll('.sj')), cur = row.querySelector('.sj-cur'),
       bar = box.querySelector('.sj-track i'), typed = row.querySelector('.sj-typed'), press = row.querySelector('.sj-press'),
-      gh = row.querySelector('.sj-gh'), g = gh.getContext('2d'), G = [], q = 'נעלי ריצה', step = 0, timer = null, raf = null;
+      gh = row.querySelector('.sj-gh'), g = gh.getContext('2d'), G = [], q = /^en/.test(document.documentElement.lang) ? 'running shoes' : 'נעלי ריצה', step = 0, timer = null, raf = null;
   var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function off() { return rm || document.documentElement.classList.contains('no-motion'); }
   function size() { gh.width = row.clientWidth; gh.height = row.clientHeight; }
@@ -218,11 +223,11 @@
       else { b.vy += .03; b.y += b.vy; b.x += b.vx; b.vx *= .996; if (b.x < 40 || b.x > W - 40) b.a -= .06; if (b.a <= 0 || b.x < -10 || b.x > W + 10) B.splice(i, 1); }
     }
   }
-  function fnt(w, s) { var k = c.clientWidth ? Math.max(1, Math.min(2.1, 740 / c.clientWidth)) : 1; return w + ' ' + Math.round(s * k) + 'px Fredoka, sans-serif'; }
+  function fnt(w, s) { var k = c.clientWidth ? Math.max(1, Math.min(2.1, 740 / c.clientWidth)) : 1; return w + ' ' + Math.round(s * k) + 'px Fredoka, Rubik, sans-serif'; }
   function draw() {
     x.clearRect(0, 0, W, H); x.direction = 'ltr';
     CH.forEach(function (ch) { var p = cpos(ch); ch.pulse = (ch.pulse || 0) * .93; cloud(p.x, p.y, 1 + ch.pulse * .06); x.fillStyle = ch.c; x.font = fnt(700, 19); x.textAlign = 'center'; x.fillText(ch.l, p.x, p.y + 6); });
-    var nar = c.clientWidth && c.clientWidth < 500; bands.forEach(function (b) { x.textAlign = 'left'; x.fillStyle = 'rgba(45,53,76,.85)'; x.font = fnt(600, 18); x.fillText(nar ? b.s : b.l, 26, b.y - 6); x.strokeStyle = 'rgba(45,53,76,.22)'; x.lineWidth = 1.5; x.setLineDash([3, 7]); x.beginPath(); x.moveTo(26, b.y); x.lineTo(W - 26, b.y); x.stroke(); x.setLineDash([]); x.fillStyle = 'rgba(85,96,122,.8)'; x.font = fnt(500, 15); x.textAlign = 'right'; if (!nar) x.fillText('drop-off →', W - 26, b.y - 6); });
+    var nar = c.clientWidth && c.clientWidth < 500; bands.forEach(function (b) { x.textAlign = 'left'; x.fillStyle = 'rgba(45,53,76,.85)'; x.font = fnt(600, 18); x.fillText(nar ? b.s : b.l, 26, b.y - 6); x.strokeStyle = 'rgba(45,53,76,.22)'; x.lineWidth = 1.5; x.setLineDash([3, 7]); x.beginPath(); x.moveTo(26, b.y); x.lineTo(W - 26, b.y); x.stroke(); x.setLineDash([]); x.fillStyle = 'rgba(85,96,122,.8)'; x.font = fnt(500, 17); x.textAlign = 'right'; if (!nar) x.fillText('drop-off →', W - 26, b.y - 6); });
     pegs.forEach(function (p) { p.h *= .9; x.beginPath(); x.arc(p.x, p.y, p.r + p.h * 2, 0, 7); x.fillStyle = p.h > .05 ? 'rgba(45,53,76,.7)' : 'rgba(45,53,76,.42)'; x.fill(); });
     bump.forEach(function (p) { p.h *= .92; x.beginPath(); x.arc(p.x, p.y, p.r + p.h * 4, 0, 7); x.fillStyle = p.c; x.fill(); x.lineWidth = 2; x.strokeStyle = 'rgba(255,255,255,.9)'; x.stroke(); });
     x.strokeStyle = '#2D354C'; x.lineWidth = 3.5; x.lineCap = 'round';
@@ -244,7 +249,7 @@
 (function () {
   document.querySelectorAll('.sc-copy').forEach(function (b) {
     b.addEventListener('click', function () {
-      var v = b.getAttribute('data-copy'), done = function () { var o = b.textContent; b.textContent = 'הועתק'; setTimeout(function () { b.textContent = o; }, 1600); };
+      var v = b.getAttribute('data-copy'), done = function () { var o = b.textContent; b.textContent = /^en/.test(document.documentElement.lang) ? 'Copied' : 'הועתק'; setTimeout(function () { b.textContent = o; }, 1600); };
       if (navigator.clipboard) navigator.clipboard.writeText(v).then(done, function () { location.href = 'mailto:' + v; }); else location.href = 'mailto:' + v;
     });
   });
