@@ -443,7 +443,7 @@ button.nd-btn { cursor: pointer; font: inherit; }
 
 /* UX review 26.11.2026 */
 .sc-hline { margin: -14px 0 22px; max-inline-size: 34ch; font: 500 18px/28px var(--font-sans); color: var(--ink); text-align: start; }
-@media (min-width: 861px) { .sc-hero--e .sc-hline { margin-inline-start: auto; margin-inline-end: 0; text-align: left !important; max-inline-size: 400px; } }
+@media (min-width: 861px) { .sc-hero--e .sc-hline { margin-left: 0; margin-right: auto; text-align: left !important; max-inline-size: 420px; } }
 @media (max-width: 860px) { .sc-hline { text-align: center; margin-inline: auto; font-size: 17px; line-height: 26px; } }
 .sc-wa { font-family: var(--font-sans) !important; letter-spacing: 0; font-weight: 600; }
 .sc-sub { margin: -6px 0 18px; font-size: 17px; line-height: 26px; color: var(--ink-muted); }
@@ -461,3 +461,14 @@ button.nd-btn { cursor: pointer; font: inherit; }
 .sc-top .nd-btn, .sc-next .nd-btn, .sc-form__actions .nd-btn, .sc-copy { min-block-size: 44px; height: 44px; }
 @media (max-width: 480px) { .sc-fab--a11y { inline-size: 44px; block-size: 44px; } }
 .sc-wa, .sc-next .nd-btn { text-decoration: none !important; }
+/* English, LTR (26.11.2026) */
+[dir="ltr"] .sc-hero--e .sc-hero__text { order: -1; align-items: flex-start; }
+[dir="ltr"] .sc-hero--e .sc-cta, [dir="ltr"] .sc-jump { justify-content: flex-start; }
+@media (max-width: 860px) { [dir="ltr"] .sc-hero--e .sc-hero__text { align-items: center; } [dir="ltr"] .sc-hero--e .sc-cta, [dir="ltr"] .sc-jump { justify-content: center; } }
+[dir="ltr"] .sj-track i { right: auto; left: 0; }
+[dir="ltr"] .sc-hnote { transform: rotate(-2deg); transform-origin: left; }
+[dir="ltr"] .sc-hnote svg { transform: translateY(8px); }
+[dir="ltr"] .sv-go:hover span { transform: translateX(4px); }
+[dir="ltr"] .sc-cv__x { float: right; }
+[dir="ltr"] .sc-fabs, [dir="ltr"] .sc-a11y { inset-inline-start: auto; inset-inline-end: 16px; }
+.sc-hline { margin-block-end: 28px !important; }

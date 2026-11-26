@@ -28,7 +28,7 @@ Visitors arrive from LinkedIn Featured, the CV, or a link sent before an intervi
 
 ## Capabilities and Constraints
 
-- Hebrew, RTL, is the main language; no English page (removed 25.11.2026; `tools/nimrod-vassal/` redirects home).
+- Home page is in English, LTR (Nimrod, 26.11.2026). Tool pages, accessibility and privacy pages stay in Hebrew. `tools/nimrod-vassal/` redirects home.
 - All tools run on sample or synthetic data. Real personal data (job pipeline, contacts, company names) never appears.
 - Every career fact must match the official CV (v9, 24.11.2026). No partner or employer-client names, no "comparison-site" framing, no P&L Manager title.
 - Departure from Ryze is never framed as a layoff.

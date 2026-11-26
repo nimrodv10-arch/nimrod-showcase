@@ -15,14 +15,14 @@
   document.querySelectorAll('.fx-ticker__track').forEach(function (t) { t.innerHTML += t.innerHTML; t.lastElementChild && t.querySelectorAll('span').forEach(function (s, i, all) { if (i >= all.length / 2) s.setAttribute('aria-hidden', 'true'); }); });
   /* Peek: open a tool inside the page. Ctrl/Cmd-click still opens normally. */
   var dlg = document.createElement('dialog'); dlg.className = 'fx-peek';
-  dlg.innerHTML = '<div class="fx-peek__bar"><span class="fx-peek__title"></span><a class="fx-peek__open" href="#">לפתוח בעמוד מלא</a><button type="button" class="fx-peek__close">סגירה</button></div><iframe title="תצוגה מקדימה של הכלי" loading="lazy"></iframe>';
+  dlg.innerHTML = '<div class="fx-peek__bar"><span class="fx-peek__title"></span><a class="fx-peek__open" href="#">Open full page</a><button type="button" class="fx-peek__close">Close</button></div><iframe title="Tool preview" loading="lazy"></iframe>';
   document.body.appendChild(dlg);
   var ifr = dlg.querySelector('iframe');
   dlg.querySelector('.fx-peek__close').addEventListener('click', function () { dlg.close(); });
   dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
   dlg.addEventListener('close', function () { ifr.src = 'about:blank'; });
   document.querySelectorAll('.sc-shot[data-peek]').forEach(function (a) {
-    var hint = document.createElement('span'); hint.className = 'fx-peek-hint'; hint.textContent = 'הצצה לכלי'; hint.setAttribute('aria-hidden', 'true'); a.appendChild(hint);
+    var hint = document.createElement('span'); hint.className = 'fx-peek-hint'; hint.textContent = 'Preview'; hint.setAttribute('aria-hidden', 'true'); a.appendChild(hint);
     a.addEventListener('click', function (e) {
       if (e.metaKey || e.ctrlKey || e.shiftKey || !dlg.showModal) return;
       e.preventDefault(); ifr.src = a.getAttribute('href');
